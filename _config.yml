@@ -1,0 +1,51 @@
+# Configuración del sitio
+title: "Jackson Bill - Ingeniero Electrónico"
+description: "Portafolio de Ingeniería Electrónica, Automatización y Sistemas Embebidos"
+author: "Jackson Bill"
+email: "tu-email@example.com"
+url: "https://jacksonbill3108.github.io"
+baseurl: ""
+
+# Tema
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Configuración del tema
+minima:
+  skin: dark
+  social_links:
+    github: Jacksonbill3108
+    youtube: tu-canal-youtube
+    linkedin: tu-linkedin
+
+# Configuración de navegación
+header_pages:
+  - about.md
+  - projects.md
+  - blog.md
+  - contact.md
+
+# Configuración de blog
+show_excerpts: true
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# Configuración de construcción
+markdown: kramdown
+highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Excluir archivos
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
