@@ -1,37 +1,62 @@
 # Configuración del sitio
-title: "Jackson Bill - Ingeniero Electrónico"
+title: "Angle Technology"
+subtitle: "Soluciones Electrónicas y Automatización"
 description: "Portafolio de Ingeniería Electrónica, Automatización y Sistemas Embebidos"
-author: "Jackson Bill"
-email: "tu-email@example.com"
-url: "https://jacksonbill3108.github.io"
+author: "J. Cesar Angulo"
+email: "contacto@angletechnology.com"
+url: "https://angle-technology.github.io"
 baseurl: ""
 
-# Tema
-theme: minima
+# Tema profesional
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Logo y branding
+logo: "/assets/images/logo.png" # Aquí irá tu logo
+masthead_title: " " # Esto hace que solo aparezca el logo
+
+# Autor
+author:
+  name: "Ing. J. Cesar Angulo"
+  avatar: "/assets/images/bio-photo.jpg"
+  bio: "Ingeniero Electrónico especializado en automatización industrial y sistemas embebidos"
+  location: "Santa Cruz, Bolivia"
+  email: "contacto@angletechnology.com"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/angle-technology"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://youtube.com/@ing-j-cesar-angulo"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/tu-perfil"
+
+# Configuración del sitio
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
-# Configuración del tema
-minima:
-  skin: dark
-  social_links:
-    github: Jacksonbill3108
-    youtube: tu-canal-youtube
-    linkedin: tu-linkedin
+  - jekyll-include-cache
 
 # Configuración de navegación
-header_pages:
-  - about.md
-  - projects.md
-  - blog.md
-  - contact.md
+masthead_title: "Angle Technology"
+navigation:
+  - title: "Inicio"
+    url: /
+  - title: "Acerca de"
+    url: /about/
+  - title: "Proyectos"
+    url: /projects/
+  - title: "Blog"
+    url: /blog/
+  - title: "Contacto"
+    url: /contact/
 
 # Configuración de blog
-show_excerpts: true
 paginate: 5
-paginate_path: "/blog/page:num/"
+paginate_path: /page:num/
 
 # Configuración de construcción
 markdown: kramdown
@@ -39,6 +64,41 @@ highlighter: rouge
 sass:
   sass_dir: _sass
   style: compressed
+
+# Configuración de colecciones
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: false
+      share: true
 
 # Excluir archivos
 exclude:
