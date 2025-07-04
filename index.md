@@ -5,7 +5,7 @@ hidden: true
 header:
   overlay_color: "#1e2124"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/header-bg.jpg
+  overlay_image: /assets/images/Logo.png
   actions:
     - label: "Ver Proyectos"
       url: "/projects/"
