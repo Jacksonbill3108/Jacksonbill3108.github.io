@@ -18,7 +18,7 @@ masthead_title: " " # Esto hace que solo aparezca el logo
 # Autor
 author:
   name: "Ing. J. Cesar Angulo"
-  avatar: "/assets/images/bio-photo.jpg"
+  avatar: "/assets/images/Bio-photo.jpg"
   bio: "Ingeniero Electrónico especializado en automatización industrial y sistemas embebidos"
   location: "Santa Cruz, Bolivia"
   email: "contacto@angletechnology.com"
