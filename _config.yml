@@ -12,7 +12,7 @@ remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Logo y branding
-logo: "/assets/images/logo.png" # Aquí irá tu logo
+logo: "/assets/images/Logo.png" # Aquí irá tu logo
 masthead_title: " " # Esto hace que solo aparezca el logo
 
 # Autor
