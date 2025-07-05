@@ -9,8 +9,9 @@
 
 /* --- Imagen de perfil grande --- */
 .profile-image img {
-  max-height: 140px;
+  max-height: 180px;
   width: auto;
+  
 }
 
 /* --- Título y descripción más optimizados --- */
