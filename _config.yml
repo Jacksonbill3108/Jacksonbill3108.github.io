@@ -3,7 +3,7 @@ title: "Angle Technology"
 subtitle: "Soluciones Electrónicas y Automatización"
 description: "Portafolio de Ingeniería Electrónica, Automatización y Sistemas Embebidos"
 author: "J. Cesar Angulo"
-email: "contacto@angletechnology.com"
+email: "jangulowoqr@gmail.com"
 url: "https://angle-technology.github.io"
 baseurl: ""
 
@@ -25,13 +25,13 @@ author:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/angle-technology"
+      url: "https://github.com/Jacksonbill3108"
     - label: "YouTube"
       icon: "fab fa-fw fa-youtube"
-      url: "https://youtube.com/@ing-j-cesar-angulo"
+      url: "https://www.youtube.com/@Ing.J.CesarAngulo"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/tu-perfil"
+      url: "www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211"
 
 # Configuración del sitio
 plugins:
