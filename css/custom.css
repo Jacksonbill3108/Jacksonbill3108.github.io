@@ -1,41 +1,43 @@
-/* === Ajustes de diseño sidebar === */
+/* --- Sidebar general --- */
 .sidebar-menu {
-  padding-top: 20px;
+  padding-top: 25px;
   padding-bottom: 10px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
-/* Imagen de perfil más pequeña */
+/* --- Imagen de perfil grande --- */
 .profile-image img {
-  max-height: 100px;
+  max-height: 140px;
   width: auto;
 }
 
-/* Título y descripción más compactos */
+/* --- Título y descripción más optimizados --- */
 .profile-title {
-  font-size: 18px;
-  margin-bottom: 5px;
+  font-size: 20px;
+  margin-bottom: 6px;
 }
 .profile-description {
-  font-size: 13px;
-  margin-bottom: 10px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  padding: 0 8px;
+  text-align: center;
 }
 
-/* Menú más compacto */
+/* --- Menú más compacto --- */
 .main-navigation {
   flex: 1 1 auto;
 }
 .navigation li {
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 .navigation li a {
   font-size: 14px;
-  padding: 6px 10px;
+  padding: 6px 8px;
 }
 
-/* Redes sociales siempre visibles al fondo */
+/* --- Íconos sociales al fondo --- */
 .social-icons {
   margin-top: auto;
   padding-bottom: 10px;
