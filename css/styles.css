@@ -28,7 +28,7 @@ body {
 .sidebar {
   width: 230px;
   background-color: var(--color-superficie);
-  padding: 2rem 1rem;
+  padding: 5rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,8 +37,8 @@ body {
 
 /* Imagen de perfil redonda y tamaño */
 .sidebar .profile img {
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   border-radius: 90%;
   object-fit: cover;
   border: 3px solid var(--color-primario);
@@ -48,14 +48,14 @@ body {
 
 /* Título y descripción */
 .sidebar .profile h1 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--color-primario);
   margin-bottom: 0.25rem;
   text-align: center;
 }
 
 .sidebar .profile p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-texto);
   margin-bottom: 2rem;
   text-align: center;
@@ -75,7 +75,7 @@ body {
   color: var(--color-texto);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 0.5rem 1rem;
   display: block;
   border-radius: 5px;
