@@ -236,3 +236,62 @@ body.sidebar-hidden .main-content {
 }
 
 
+/* ================= MEDIA QUERIES ================= */
+
+/* Para pantallas menores a 768px (tablets y móviles) */
+@media screen and (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+    background-color: #1a1a1a;
+  }
+
+  .sidebar.collapsed {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .top-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .site-menu ul {
+    display: none; /* ocultamos el menú de navegación en móviles por ahora */
+  }
+
+  .toggle-btn {
+    display: inline-block; /* se muestra el botón ☰ en móviles */
+  }
+
+  .logo {
+    height: 32px;
+  }
+}
+
+/* Para pantallas muy pequeñas (menores a 480px) */
+@media screen and (max-width: 480px) {
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .slider-caption h2 {
+    font-size: 1.3rem;
+  }
+
+  .slider-caption p {
+    font-size: 1rem;
+  }
+}
