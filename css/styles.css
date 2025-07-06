@@ -254,32 +254,63 @@ body.sidebar-hidden .main-content {
     position: relative;
     padding: 1rem;
     text-align: center;
-    background-color: #1a1a1a;
+    background-color: var(--color-superficie);
     display: none;
   }
 
-  .sidebar.collapsed {
-    display: none;
+  .sidebar.show {
+    display: flex;
+    flex-direction: column;
   }
 
   .main-content {
     width: 100%;
     padding: 1rem;
+    margin-left: 0;
   }
 
   .top-nav {
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
   }
 
+  /* Marca y botón hamburguesa */
+  .top-nav .brand {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Menú del top-nav se convierte en dropdown oculto por defecto */
+  .site-menu {
+    display: none;
+    width: 100%;
+  }
+
+  .top-nav.show-menu .site-menu {
+    display: block;
+  }
+
   .site-menu ul {
-    display: none; /* ocultamos el menú de navegación en móviles por ahora */
+    flex-direction: column;
+    padding: 0.5rem 0;
+  }
+
+  .site-menu ul li {
+    margin: 0.5rem 0;
   }
 
   .toggle-btn {
-    display: inline-block; /* se muestra el botón ☰ en móviles */
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
   }
 
   .logo {
