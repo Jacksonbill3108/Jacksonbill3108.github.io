@@ -8,3 +8,12 @@ function showNextSlide() {
 }
 
 setInterval(showNextSlide, 5000);  
+
+// Toggle sidebar
+const toggleBtn = document.getElementById('sidebarToggle');
+const sidebar   = document.querySelector('.sidebar');
+const body      = document.body;
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+    body.classList.toggle('sidebar-hidden');
+});

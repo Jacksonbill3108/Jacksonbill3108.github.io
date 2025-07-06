@@ -24,7 +24,65 @@ body {
   overflow: hidden;
 }
 
+/* ===== Top navigation ======= */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1c1c1c;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  color: white;
+}
+
+.top-nav .brand {
+  display: flex;
+  align-items: center;
+}
+
+.top-nav .logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.top-nav .brand-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.top-nav .site-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.top-nav .site-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.toggle-btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+
 /* ===== SIDEBAR ===== */
+.layout {
+  display: flex;
+  padding-top: 60px; /* altura del top nav */
+}
+
 .sidebar {
   width: 230px;
   background-color: var(--color-superficie);
@@ -33,8 +91,17 @@ body {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  transition: all 0.3s ease;
 }
 
+.sidebar.collapsed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body.sidebar-hidden .main-content {
+  margin-left: 0;
+}
 /* Imagen de perfil redonda y tamaño */
 .sidebar .profile img {
   width: 160px;
@@ -108,7 +175,15 @@ body {
 .main-content {
   flex: 1;
   overflow-y: auto;
-  padding: 2rem;
+  padding: 3rem 2rem;
+  background-color: #141414;
+}
+
+.inicio-header {
+  background-color: #252525; /* o un gris claro, personalizable */
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
 }
 
 /* Título principal */
