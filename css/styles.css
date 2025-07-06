@@ -20,8 +20,8 @@ body {
   background-color: var(--color-fondo);
   color: var(--color-texto);
   display: flex; /* sidebar + contenido horizontal */
-  height: 100vh;
-  overflow: hidden;
+  height: auto;
+  overflow: auto;
 }
 
 /* ===== Top navigation ======= */
@@ -315,6 +315,10 @@ body.sidebar-hidden .main-content {
     border: none;
     color: white;
     cursor: pointer;
+  }
+
+  .nav-btn{
+    margin-right: 20px;
   }
 
   .logo {
