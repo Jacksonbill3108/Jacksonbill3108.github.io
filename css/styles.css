@@ -20,7 +20,6 @@ body {
   background-color: var(--color-fondo);
   color: var(--color-texto);
   display: flex; /* sidebar + contenido horizontal */
-  height: auto;
   overflow: auto;
 }
 
@@ -318,7 +317,7 @@ body.sidebar-hidden .main-content {
   }
 
   .nav-btn{
-    margin-right: 20px;
+    margin-right: 50px;
   }
 
   .logo {
