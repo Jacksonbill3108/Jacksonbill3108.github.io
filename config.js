@@ -9,22 +9,30 @@ function showNextSlide() {
 }
 setInterval(showNextSlide, 5000);
 
-/* -------------- SIDEBAR + TOPNAV --------------- */
-const toggleBtn = document.getElementById("sidebarToggle");
-const sidebar   = document.querySelector(".sidebar");
-const topNav    = document.querySelector(".top-nav");
-const body      = document.body;
+/* -------------- BOTONES & LAYOUT --------------- */
+const navBtn      = document.getElementById("navToggle");     // ⌄  (solo móvil)
+const sidebarBtn  = document.getElementById("sidebarToggle"); // ☰
+const topNav      = document.querySelector(".top-nav");
+const sidebar     = document.querySelector(".sidebar");
+const body        = document.body;
 
-toggleBtn.addEventListener("click", () => {
+/* -------- Menú superior desplegable (solo móvil) -------- */
+navBtn.addEventListener("click", () => {
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    topNav.classList.toggle("show-menu"); // actúa sobre CSS @media
+  }
+});
+
+/* -------- Sidebar: móvil vs. escritorio -------- */
+sidebarBtn.addEventListener("click", () => {
   const mobile = window.matchMedia("(max-width: 768px)").matches;
 
   if (mobile) {
-    /* MÓVIL: deslizar sidebar + desplegar menú */
-    sidebar.classList.toggle("show");     // sidebar: display none ↔ flex
-    topNav.classList.toggle("show-menu"); // nav:    display none ↔ block
+    /* MÓVIL: desliza sidebar dentro/fuera */
+    sidebar.classList.toggle("show"); // .show controla display o transform
   } else {
-    /* ESCRITORIO: colapsar/expandir sidebar */
+    /* ESCRITORIO: colapsa/expande */
     sidebar.classList.toggle("collapsed");
-    body.classList.toggle("sidebar-hidden"); // por si ajustas margen en CSS
+    body.classList.toggle("sidebar-hidden"); // si usas margen en CSS
   }
 });

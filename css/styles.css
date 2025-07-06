@@ -75,6 +75,9 @@ body {
   cursor: pointer;
 }
 
+.nav-btn {
+  display: none;
+}
 
 
 /* ===== SIDEBAR ===== This goes for PC*/
@@ -267,6 +270,7 @@ body.sidebar-hidden .main-content {
     width: 100%;
     padding: 1rem;
     margin-left: 0;
+    overflow-y: auto;
   }
 
   .top-nav {
@@ -291,7 +295,7 @@ body.sidebar-hidden .main-content {
   }
 
   .top-nav.show-menu .site-menu {
-    display: block;
+    display: flex;
   }
 
   .site-menu ul {
@@ -303,7 +307,7 @@ body.sidebar-hidden .main-content {
     margin: 0.5rem 0;
   }
 
-  .toggle-btn {
+  .nav-btn, .toggle-btn {
     display: inline-block;
     font-size: 1.5rem;
     margin-left: auto;
