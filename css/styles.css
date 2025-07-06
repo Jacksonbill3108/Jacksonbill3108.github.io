@@ -77,10 +77,11 @@ body {
 
 
 
-/* ===== SIDEBAR ===== */
+/* ===== SIDEBAR ===== This goes for PC*/
 .layout {
   display: flex;
   padding-top: 60px; /* altura del top nav */
+  min-height: 100vh;
 }
 
 .sidebar {
@@ -177,6 +178,8 @@ body.sidebar-hidden .main-content {
   overflow-y: auto;
   padding: 3rem 2rem;
   background-color: #141414;
+  box-sizing: border-box;
+  margin-left: 230px;
 }
 
 .inicio-header {
