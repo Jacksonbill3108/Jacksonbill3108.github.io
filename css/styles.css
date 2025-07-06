@@ -247,6 +247,12 @@ body.sidebar-hidden .main-content {
 
 /* Para pantallas menores a 768px (tablets y móviles) */
 @media screen and (max-width: 768px) {
+  body {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .layout {
     flex-direction: column;
   }
@@ -258,6 +264,7 @@ body.sidebar-hidden .main-content {
     text-align: center;
     background-color: var(--color-superficie);
     display: none;
+    overflow-y: auto;
   }
 
   .sidebar.show {
@@ -270,6 +277,8 @@ body.sidebar-hidden .main-content {
     padding: 1rem;
     margin-left: 0;
     overflow-y: auto;
+    min-height: 100vh;
+    position: relative;
   }
 
   .top-nav {
@@ -317,7 +326,7 @@ body.sidebar-hidden .main-content {
   }
 
   .nav-btn{
-    margin-right: 50px;
+    margin-right: 0.5rem;
   }
 
   .logo {
