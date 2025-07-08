@@ -280,7 +280,6 @@ body.sidebar-hidden .main-content {
     overflow-y: auto;
     min-height: 100vh;
     position: relative;
-    margin-top: 60px;
   }
 
   .top-nav {
