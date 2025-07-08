@@ -89,7 +89,7 @@ body {
 .sidebar {
   width: 230px;
   background-color: var(--color-superficie);
-  padding: 5rem 3rem;
+  padding: 3rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,7 +178,7 @@ body.sidebar-hidden .main-content {
 .main-content {
   flex: 1;
   overflow-y: auto;
-  padding: 3rem 2rem;
+  padding: 2rem 2rem;
   background-color: #141414;
   box-sizing: border-box;
   margin-top: 60px;
@@ -187,8 +187,8 @@ body.sidebar-hidden .main-content {
 
 
 .inicio-header {
-  background-color: #252525; /* o un gris claro, personalizable */
-  padding: 3rem 2rem;
+  background-color: #252525; /* un gris claro */
+  padding: 2rem 2rem;
   margin-bottom: 2rem;
   border-radius: 12px;
 }
