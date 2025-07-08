@@ -257,25 +257,30 @@ body.sidebar-hidden .main-content {
     flex-direction: column;
   }
 
-  .sidebar {
-    width: 100%;
-    position: relative;
-    padding: 1rem;
-    text-align: center;
-    background-color: var(--color-superficie);
-    display: none;
-    overflow-y: auto;
+
+  .sidebar{
+    position:fixed;
+    top:60px;                 /* justo debajo del top‑nav */
+    left:0;
+    width:230px;
+    height:calc(100vh - 60px);
+    background:var(--color-superficie);
+    padding:1rem;
+    overflow-y:auto;
+    transform:translateX(-100%);     /* fuera de vista */
+    transition:transform .3s ease;
+    z-index:1001;
   }
 
-  .sidebar.show {
-    display: flex;
-    flex-direction: column;
+  .sidebar.show{
+    transform:translateX(0);         /* desliza dentro */
   }
 
   .main-content {
     width: 100%;
     padding: 1rem;
     margin-left: 0;
+    margin-top: 60px;
     overflow-y: auto;
     min-height: 100vh;
     position: relative;
@@ -326,7 +331,7 @@ body.sidebar-hidden .main-content {
   }
 
   .nav-btn{
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
   }
 
   .logo {
