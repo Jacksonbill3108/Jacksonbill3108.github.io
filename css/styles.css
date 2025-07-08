@@ -255,7 +255,6 @@ body.sidebar-hidden .main-content {
 
   .layout {
     flex-direction: column;
-    padding-top: 0;
   }
 
   .sidebar {
