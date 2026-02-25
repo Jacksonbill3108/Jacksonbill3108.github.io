@@ -357,3 +357,84 @@ body.sidebar-hidden .main-content {
     font-size: 1rem;
   }
 }
+
+/* =========================================
+  SECCIÓN DE DOCENCIA / CURSOS (MOSTRADOR)
+  ========================================= */
+
+/* Encabezado de la sección */
+.seccion-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+}
+
+.seccion-header h2 {
+  font-size: 2.5rem;
+  color: #5183b4; /* Puedes ajustarlo al color principal de tu web */
+  margin-bottom: 0.5rem;
+}
+
+/* Contenedor de la cuadrícula (Grid Responsivo) */
+.cursos-grid {
+  display: grid;
+  /* La magia: crea columnas de mínimo 280px que se expanden si hay espacio */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem 2rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto; /* Centra la cuadrícula en la pantalla */
+}
+
+/* Estilo individual de cada tarjeta de materia */
+.curso-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eaeaea;
+}
+
+/* Efecto Hover: la tarjeta se eleva al pasar el mouse */
+.curso-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícono representativo de la materia */
+.curso-icono {
+  font-size: 3.5rem;
+  color: #007bff; /* Cambia este azul por el color de Axon si lo deseas */
+  margin-bottom: 1rem;
+}
+
+.curso-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.curso-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Botón para entrar al material de la materia */
+.btn-curso {
+  display: inline-block;
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-curso:hover {
+  background-color: #1a252f;
+}
