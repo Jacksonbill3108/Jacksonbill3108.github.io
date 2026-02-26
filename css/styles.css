@@ -438,3 +438,125 @@ body.sidebar-hidden .main-content {
 .btn-curso:hover {
   background-color: #1a252f;
 }
+
+/* =========================================
+   ESTILOS PARA EL TEMARIO (ACORDEÓN)
+   ========================================= */
+.temario-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem 1rem;
+}
+
+.tema-accordion {
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  overflow: hidden;
+}
+
+/* El título que se puede clickear */
+.tema-accordion summary {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  list-style: none; /* Quita la flecha por defecto en algunos navegadores */
+  position: relative;
+}
+
+/* Agrega un indicador visual (+) al acordeón cerrado */
+.tema-accordion summary::after {
+  content: '+';
+  position: absolute;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: #007bff;
+  transition: transform 0.3s;
+}
+
+/* Cambia a (-) cuando está abierto */
+.tema-accordion[open] summary::after {
+  content: '-';
+  transform: rotate(180deg);
+}
+
+.tema-accordion[open] summary {
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* El contenido que se despliega */
+.tema-contenido {
+  padding: 1.5rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+}
+
+/* Estilo para los bloques de código tipo VS Code */
+pre {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Botones de descarga dentro del temario */
+.btn-descarga {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.btn-descarga:hover {
+  background-color: #0056b3;
+}
+
+
+/* =========================================
+   ESTILOS PARA LA CLASE INDIVIDUAL (UNIDAD)
+   ========================================= */
+
+/* Contenedor centralizado para facilitar la lectura */
+.clase-contenido {
+  max-width: 800px; /* Evita que las líneas de texto sean infinitas en PC */
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1.8; /* Da respiro al texto */
+  color: #333;
+}
+
+/* Botón sutil para regresar al índice */
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.btn-volver:hover {
+  color: #004494;
+  text-decoration: underline;
+}
+
+/* Títulos dentro de la clase */
+.clase-contenido h1 { color: #2c7ed1; margin-top: 1rem; }
+.clase-contenido h2 { margin-top: 2rem; color: #4b81b7; }
+.clase-contenido h3 { margin-top: 1.5rem; color: #6c2e2e; }
+.clase-contenido p { font-size: 1rem; color: #fbfdfe; }

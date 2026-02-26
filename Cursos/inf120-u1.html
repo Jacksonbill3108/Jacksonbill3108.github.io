@@ -6,10 +6,10 @@
   <title>Axon Technologies | Portafolio</title>
   
   <!-- Favicon -->
-  <link rel="icon" href="assets/images/Logo.png" type="image/x-icon" />
+  <link rel="icon" href="../assets/images/Logo.png" type="image/x-icon" />
   
   <!-- Enlace al archivo CSS externo -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
   <!-- Link de íconos para la redes sociales-->
    <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -20,7 +20,7 @@
   <!--Top navigation-->
   <header class="top-nav">
     <div class="brand">
-      <img src="assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
+      <img src="../assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
       <span class="brand-name">Axon Technologies</span>
     </div>
     <!-- Botón únicamente para el celular -->
@@ -28,10 +28,10 @@
 
     <nav class="site-menu">
       <ul>
-        <li><a href="index.html">Inicio</a></li>
+        <li><a href="../index.html">Inicio</a></li>
         <li><a href="#articulos">Artículos</a></li>
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#Cursos">Cursos</a></li>
+        <li><a href="../clases.html">Cursos</a></li>
         <li><a href="#tienda">Tienda</a></li>
       </ul>
     </nav>
@@ -43,13 +43,13 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="profile">
-      <img src="assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
+      <img src="../assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
       <h1>Ing. Julio Cesar Angulo</h1>
       <p>Ingeniero Electrónico</p>
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
+        <li><a href="../index.html">Inicio</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#cv">CV</a></li>
@@ -65,35 +65,36 @@
   </div>
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content">
-    <section class="seccion-header">
-        <h2>Recursos Académicos y Docencia</h2>
-        <p>Material de apoyo, guías de laboratorio y códigos para mis estudiantes.</p>
-    </section>
-    <section class="cursos-grid">
-        
-        <div class="curso-card">
-            <div class="curso-icono"><i class="fa-brands fa-python"></i></div>
-            <h3>Programación</h3>
-            <p>Material de clases, ejercicios prácticos y repositorios de código estructurado.</p>
-            <a href="Cursos/program.html" class="btn-curso">Ver Contenido</a>
-        </div>
+  <div class="clase-contenido">
+    
+    <a href="program.html" class="btn-volver">
+      <i class="fa-solid fa-arrow-left"></i> Volver al Temario
+    </a>
 
-        <div class="curso-card">
-        <div class="curso-icono"><i class="fa-solid fa-microchip"></i></div>
-            <h3>Teoría de Control I</h3>
-            <p>Guías de laboratorio detalladas, simulaciones y análisis de sistemas.</p>
-            <a href="docencia/control-1.html" class="btn-curso">Ver Contenido</a>
-        </div>
+    <h1>Unidad 1: Introducción a Python</h1>
+    <p>Bienvenidos a la primera clase de la ayudantía. Hoy veremos los conceptos fundamentales de Python...</p>
 
-    </section>
+    <h2>1. Tipos de Datos</h2>
+    <p>En Python no necesitamos declarar el tipo de variable. El intérprete lo asigna dinámicamente.</p>
 
+    <pre><code>
+    # Ejemplo de tipado dinámico
+    edad = 23          # Tipo Entero (int)
+    peso = 70.5        # Tipo Flotante (float)
+    nombre = "Julio"   # Tipo Cadena (str)
 
-    <!-- Más secciones... -->
+    print(type(edad))
+    </code></pre>
+
+    <h2>2. Operadores Básicos</h2>
+    <p>Python soporta operaciones matemáticas directas...</p>
+
+  </div>
   </main>
   </div>
   
   <!-- Fuente de iconos FontAwesome CDN -->
   <!--Script de funcionalidades-->
-  <script src="config.js"></script>
+  <script src="../config.js"></script>
 </body>
 </html>
