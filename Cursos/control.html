@@ -6,10 +6,10 @@
   <title>Axon Technologies | Portafolio</title>
   
   <!-- Favicon -->
-  <link rel="icon" href="assets/images/Logo.png" type="image/x-icon" />
+  <link rel="icon" href="../assets/images/Logo.png" type="image/x-icon" />
   
   <!-- Enlace al archivo CSS externo -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
   <!-- Link de íconos para la redes sociales-->
    <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -20,7 +20,7 @@
   <!--Top navigation-->
   <header class="top-nav">
     <div class="brand">
-      <img src="assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
+      <img src="../assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
       <span class="brand-name">Axon Technologies</span>
     </div>
     <!-- Botón únicamente para el celular -->
@@ -28,10 +28,10 @@
 
     <nav class="site-menu">
       <ul>
-        <li><a href="index.html">Inicio</a></li>
+        <li><a href="../index.html">Inicio</a></li>
         <li><a href="#articulos">Artículos</a></li>
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#Cursos">Cursos</a></li>
+        <li><a href="../clases.html">Cursos</a></li>
         <li><a href="#tienda">Tienda</a></li>
       </ul>
     </nav>
@@ -43,13 +43,13 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="profile">
-      <img src="assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
+      <img src="../assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
       <h1>Ing. Julio Cesar Angulo</h1>
       <p>Ingeniero Electrónico</p>
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
+        <li><a href="../index.html">Inicio</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#cv">CV</a></li>
@@ -69,21 +69,36 @@
         <h2>Recursos Académicos y Docencia</h2>
         <p>Material de apoyo, guías de laboratorio y códigos para mis estudiantes.</p>
     </section>
-    <section class="cursos-grid">
-        
-        <div class="curso-card">
-            <div class="curso-icono"><i class="fa-brands fa-python"></i></div>
-            <h3>Programación</h3>
-            <p>Material de clases, ejercicios prácticos y repositorios de código estructurado.</p>
-            <a href="Cursos/program.html" class="btn-curso">Ver Contenido</a>
-        </div>
 
-        <div class="curso-card">
-        <div class="curso-icono"><i class="fa-solid fa-microchip"></i></div>
-            <h3>Teoría de Control I</h3>
-            <p>Guías de laboratorio detalladas, simulaciones y análisis de sistemas.</p>
-            <a href="Cursos/control.html" class="btn-curso">Ver Contenido</a>
+    <section class="temario-container">
+
+      <details class="tema-accordion">
+        <summary>Unidad 1: Introducción a los sistemas de control</summary>
+        <div class="tema-contenido">
+          <p><strong>Objetivo:</strong> Comprender los conceptos fundamentales de los sistemas de control.</p>
+          <ul>
+            <li>Lenguajes de programación.</li>
+            <li>IDEs de desarrollo.</li>
+            <li>Variables y tipos de datos (int, float, str, bool).</li>
+            <li>Operadores aritméticos y lógicos.</li>
+          </ul>
+          
+          <a href="inf120-u1.html" class="btn-curso">
+            Entrar a la Unidad 1 ➔
+          </a>
         </div>
+      </details>
+
+      <details class="tema-accordion">
+        <summary>Unidad 2: Estructuras de Control de Flujo</summary>
+        <div class="tema-contenido">
+          <p><strong>Objetivo:</strong> Dominar las sentencias condicionales (If/Else) y los bucles (For/While) para controlar el flujo del programa.</p>
+          
+          <a href="programacion-archivos/unidad2-bucles.html" class="btn-curso">
+            Entrar a la Unidad 2 ➔
+          </a>
+        </div>
+      </details>
 
     </section>
 
@@ -94,6 +109,6 @@
   
   <!-- Fuente de iconos FontAwesome CDN -->
   <!--Script de funcionalidades-->
-  <script src="config.js"></script>
+  <script src="../config.js"></script>
 </body>
 </html>
