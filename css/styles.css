@@ -567,5 +567,16 @@ pre {
 /* Títulos dentro de la clase */
 .clase-contenido h1 { color: #2c7ed1; margin-top: 1rem; }
 .clase-contenido h2 { margin-top: 2rem; color: #4b81b7; }
-.clase-contenido h3 { margin-top: 1.5rem; color: #6c2e2e; }
+.clase-contenido h3 { margin-top: 1rem; color: #973434; }
 .clase-contenido p { font-size: 1rem; color: #fbfdfe; }
+.clase-contenido li { margin-left: 2rem; color: #fbfbfb; }
+
+/* Manejo de imagenes responsivas dentro de la clase */
+.img-responsiva {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Le da un toque suave a las esquinas */
+  box-shadow: 0 4px 7px rgba(0,0,0,0.1); /* Sombrita sutil */
+  display: block;
+  margin: 2rem auto; /* Centra la imagen */
+}

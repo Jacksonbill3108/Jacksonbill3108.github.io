@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Axon Technologies | Portafolio</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/images/Logo.png" type="image/x-icon" />
+  
+  <!-- Enlace al archivo CSS externo -->
+  <link rel="stylesheet" href="../css/styles.css" />
+  <!-- Link de íconos para la redes sociales-->
+   <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-g9f+XObUVCQaH…(hash)…"
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+  <!--Top navigation-->
+  <header class="top-nav">
+    <div class="brand">
+      <img src="../assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
+      <span class="brand-name">Axon Technologies</span>
+    </div>
+    <!-- Botón únicamente para el celular -->
+    <button id="navToggle" class="nav-btn" aria-label="Mostrar menú"><i class="fa-solid fa-caret-down"></i></button>
+
+    <nav class="site-menu">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#articulos">Artículos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="../clases.html">Cursos</a></li>
+        <li><a href="#tienda">Tienda</a></li>
+      </ul>
+    </nav>
+    <!-- Botón para mostrar/ocultar el sidebar -->
+    <button id="sidebarToggle" class="toggle-btn" aria-label="Mostrar u ocultar perfil">☰</button>
+  </header>
+
+  <div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="../assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
+      <h1>Ing. Julio Cesar Angulo</h1>
+      <p>Ingeniero Electrónico</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="social-icons">
+      <a href="https://github.com/Jacksonbill3108" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.youtube.com/@Ing.J.CesarAngulo" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </aside>
+  </div>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+  <div class="clase-contenido">
+    
+    <a href="program.html" class="btn-volver">
+      <i class="fa-solid fa-arrow-left"></i> Volver al Temario
+    </a>
+
+    <h1>Unidad 1: Modelado de sistemas físicos</h1>
+    <p>Bienvenidos a la primera clase de la ayudantía. Hoy veremos los conceptos fundamentales de Python...</p>
+
+    <h2>1. Introducción a los sistemas de control</h2>
+    <p>
+        El objetivo principal de un sistema de control es mantener un proceso en las condiciones de operación deseadas, de forma segura y económica.
+        Para lograr esto, es fundamental entender el vocabulario básico que usaremos a lo largo de toda la carrera y las dos arquitecturas principales de control.
+    </p>
+    <h3>1.1. Conceptos básicos y terminologías</h3>
+    <p>Antes de diseñar un controlador, debemos definir las partes de nuestro sistema:</p>
+    <ul>
+        <li><strong>Variable controlada:</strong> Es la cantidad o condición que se mide y se controla. Suele ser la salida del sistema (por ejemplo, la temperatura de un cuarto). Al valor deseado de esta variable se le conoce como set point o punto de referencia.</li>
+        <li><strong>Variable manipulada:</strong> Es la cantidad o condición que el controlador varía para afectar el valor de la variable controlada (por ejemplo, la cantidad de combustible o el voltaje aplicado).</li>
+        <li><strong>Planta:</strong> Es el proceso o sistema físico que queremos controlar. Puede ser un motor, un robot, un sistema de climatización, etc.</li>
+        <li><strong>Perturbación:</strong> Es cualquier influencia externa que afecta el comportamiento de la planta y que no es controlada por el sistema (por ejemplo, cambios en la temperatura ambiente, cargas variables).</li >
+        <li><strong>Sensor:</strong> Dispositivo que mide la variable de interés (por ejemplo, temperatura, velocidad, posición) y proporciona retroalimentación al controlador.</li>
+        <li><strong>Controlador:</strong> Algoritmo o dispositivo que procesa la información del sensor y genera una señal de control para la planta.</li>
+        <li><strong>Actuador:</strong> Dispositivo que recibe la señal de control del controlador y actúa sobre la planta (por ejemplo, un motor eléctrico, una válvula).</li>
+    </ul>
+    <img src="../assets/images/Curso_control/planta_1.png" alt="PLanta de control" class="img-responsiva"/>
+    <pre><code>
+    # Ejemplo de tipado dinámico
+    edad = 23          # Tipo Entero (int)
+    peso = 70.5        # Tipo Flotante (float)
+    nombre = "Julio"   # Tipo Cadena (str)
+
+    print(type(edad))
+    </code></pre>
+
+    <h2>2. Operadores Básicos</h2>
+    <p>Python soporta operaciones matemáticas directas...</p>
+
+  </div>
+  </main>
+  </div>
+  
+  <!-- Fuente de iconos FontAwesome CDN -->
+  <!--Script de funcionalidades-->
+  <script src="../config.js"></script>
+</body>
+</html>
