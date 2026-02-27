@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Axon Technologies | Portafolio</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/Logo.png" type="image/x-icon" />
+  
+  <!-- Enlace al archivo CSS externo -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Link de íconos para la redes sociales-->
+   <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-g9f+XObUVCQaH…(hash)…"
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+  <!--Top navigation-->
+  <header class="top-nav">
+    <div class="brand">
+      <img src="assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
+      <span class="brand-name">Axon Technologies</span>
+    </div>
+    <!-- Botón únicamente para el celular -->
+    <button id="navToggle" class="nav-btn" aria-label="Mostrar menú"><i class="fa-solid fa-caret-down"></i></button>
+
+    <nav class="site-menu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#articulos">Artículos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#Cursos">Cursos</a></li>
+        <li><a href="#tienda">Tienda</a></li>
+      </ul>
+    </nav>
+    <!-- Botón para mostrar/ocultar el sidebar -->
+    <button id="sidebarToggle" class="toggle-btn" aria-label="Mostrar u ocultar perfil">☰</button>
+  </header>
+
+  <div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
+      <h1>Ing. Julio Cesar Angulo</h1>
+      <p>Ingeniero Electrónico</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="social-icons">
+      <a href="https://github.com/Jacksonbill3108" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.youtube.com/@Ing.J.CesarAngulo" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </aside>
+  </div>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+    <section class="seccion-header">
+        <h2>Proyectos vigentes</h2>
+        <p>Portafolio de proyectos personales.</p>
+    </section>
+    <section class="cursos-grid">
+        
+        <div class="curso-card">
+            <div class="curso-icono"><i class="fa-brands fa-python"></i></div>
+            <h3>Axon Node Pro v1.1</h3>
+            <p>Sistema de monitoreo de variables.</p>
+            <a href="Cursos/program.html" class="btn-curso">Ver Contenido</a>
+        </div>
+
+        <div class="curso-card">
+        <div class="curso-icono"><i class="fa-solid fa-microchip"></i></div>
+            <h3>Teoría de Control I</h3>
+            <p>Guías de laboratorio detalladas, simulaciones y análisis de sistemas.</p>
+            <a href="Cursos/control.html" class="btn-curso">Ver Contenido</a>
+        </div>
+
+    </section>
+
+
+    <!-- Más secciones... -->
+  </main>
+  </div>
+  
+  <!-- Fuente de iconos FontAwesome CDN -->
+  <!--Script de funcionalidades-->
+  <script src="config.js"></script>
+</body>
+</html>

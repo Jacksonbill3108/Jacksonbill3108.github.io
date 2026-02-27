@@ -566,7 +566,7 @@ pre {
 
 /* Títulos dentro de la clase */
 .clase-contenido h1 { color: #2c7ed1; margin-top: 1rem; }
-.clase-contenido h2 { margin-top: 2rem; color: #4b81b7; }
+.clase-contenido h2 { margin-top: 1rem; color: #4b81b7; }
 .clase-contenido h3 { margin-top: 1rem; color: #973434; }
 .clase-contenido p { font-size: 1rem; color: #fbfdfe; }
 .clase-contenido li { margin-left: 2rem; color: #fbfbfb; }
