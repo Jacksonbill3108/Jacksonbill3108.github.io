@@ -113,8 +113,8 @@
         <section class="hero-slider relative w-full h-[45vh] md:h-[55vh] rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50 group mb-16">
           <div class="slider w-full h-full relative bg-gray-900">
             <img src="img/9.jpg" alt="Automatización" class="slide active">
-            <img src="img/10.jpg" alt="Desarrollo PCB" class="slide active">
-            <img src="img/11.jpg" alt="Redes" class="slide active">
+            <img src="img/10.jpg" alt="Desarrollo PCB" class="slide">
+            <img src="img/11.jpg" alt="Redes" class="slide">
           </div>
           
           <div class="absolute inset-0 bg-gradient-to-t from-axonDark/90 via-axonDark/20 to-transparent"></div>
@@ -130,6 +130,22 @@
   </div>
   
   <script>
+      const slides = document.querySelectorAll('.slide');
+      let currentSlide = 0;
+
+      function nextSlide() {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add('active');
+      }
+
+      // Cambia de imagen automáticamente cada 4 segundos
+      if(slides.length > 0) {
+          setInterval(nextSlide, 4000);
+      }
+  </script>
+
+  <script>
       const sidebarToggle = document.getElementById('sidebarToggle');
       const sidebar = document.getElementById('mainSidebar');
       const overlay = document.getElementById('sidebarOverlay');
@@ -142,7 +158,5 @@
       sidebarToggle.addEventListener('click', toggleSidebar);
       overlay.addEventListener('click', toggleSidebar);
   </script>
-  
-  <script src="config.js"></script>
 </body>
 </html>
