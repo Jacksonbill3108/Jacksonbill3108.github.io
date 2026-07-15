@@ -1,114 +1,154 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Axon Technologies | Portafolio</title>
+  <title>Axon Lab | Temario de Programación</title>
   
-  <!-- Favicon -->
   <link rel="icon" href="../assets/images/Logo.png" type="image/x-icon" />
   
-  <!-- Enlace al archivo CSS externo -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <!-- Link de íconos para la redes sociales-->
-   <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-g9f+XObUVCQaH…(hash)…"
-      crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
-  <!--Top navigation-->
-  <header class="top-nav">
-    <div class="brand">
-      <img src="../assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
-      <span class="brand-name">Axon Technologies</span>
-    </div>
-    <!-- Botón únicamente para el celular -->
-    <button id="navToggle" class="nav-btn" aria-label="Mostrar menú"><i class="fa-solid fa-caret-down"></i></button>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            axonBlue: '#0052CC',
+            axonDark: '#0A0F1A',
+            axonPanel: '#111827',
+            axonText: '#E2E8F0'
+          }
+        }
+      }
+    }
+  </script>
 
-    <nav class="site-menu">
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="#articulos">Artículos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="../clases.html">Cursos</a></li>
-        <li><a href="#tienda">Tienda</a></li>
-      </ul>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    /* Oculta la flecha por defecto del navegador en los acordeones para poner la nuestra */
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+
+<body class="bg-axonDark text-axonText font-sans h-screen flex flex-col overflow-hidden relative">
+
+  <header class="top-nav h-16 bg-axonDark/90 backdrop-blur-md border-b border-gray-800 flex items-center justify-between px-4 lg:px-8 z-50 shrink-0">
+    <div class="brand flex items-center gap-3">
+      <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <img src="../assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded" onerror="this.src='https://via.placeholder.com/32x32/0052CC/FFFFFF?text=AL'"/>
+      <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span class="text-blue-500">LAB</span></span>
+    </div>
+
+    <nav class="site-menu hidden md:flex gap-6 font-medium items-center">
+      <a href="../index.html" class="hover:text-blue-400 transition-colors">Inicio</a>
+      <a href="../index.html#servicios" class="hover:text-blue-400 transition-colors">Servicios</a>
+      <a href="../clases.html" class="hover:text-blue-400 transition-colors text-blue-500">Capacitación</a>
     </nav>
-    <!-- Botón para mostrar/ocultar el sidebar -->
-    <button id="sidebarToggle" class="toggle-btn" aria-label="Mostrar u ocultar perfil">☰</button>
   </header>
 
-  <div class="layout">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="profile">
-      <img src="../assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
-      <h1>Ing. Julio Cesar Angulo</h1>
-      <p>Ingeniero Electrónico</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="social-icons">
-      <a href="https://github.com/Jacksonbill3108" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.youtube.com/@Ing.J.CesarAngulo" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </aside>
-  </div>
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="main-content">
-    <section class="seccion-header">
-        <h2>Recursos Académicos y Docencia</h2>
-        <p>Material de apoyo, guías de laboratorio y códigos para mis estudiantes.</p>
-    </section>
+  <div class="layout flex flex-1 overflow-hidden relative">
+    
+    <aside id="mainSidebar" class="sidebar fixed inset-y-0 left-0 pt-16 z-40 w-64 bg-axonPanel border-r border-gray-800 flex flex-col -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl">
+      <nav class="flex-1 overflow-y-auto p-4 mt-4">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 px-4">Academia Axon</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="../clases.html" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors"><i class="fa-solid fa-arrow-left w-5 text-gray-400"></i> Volver a Cursos</a></li>
+          <li><a href="#" class="flex items-center gap-3 px-4 py-2 bg-blue-600/10 text-blue-400 rounded-md transition-colors"><i class="fa-brands fa-python w-5"></i> Programación</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-    <section class="temario-container">
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden transition-opacity duration-300"></div>
 
-      <details class="tema-accordion">
-        <summary>Unidad 1: Introducción a Python y Tipos de Datos</summary>
-        <div class="tema-contenido">
-          <p><strong>Objetivo:</strong> Comprender la sintaxis básica, declaración de variables y la tipificación dinámica en Python.</p>
-          <ul>
-            <li>Lenguajes de programación.</li>
-            <li>IDEs de desarrollo.</li>
-            <li>Variables y tipos de datos (int, float, str, bool).</li>
-            <li>Operadores aritméticos y lógicos.</li>
-          </ul>
-          
-          <a href="inf120-u1.html" class="btn-curso">
-            Entrar a la Unidad 1 ➔
-          </a>
-        </div>
-      </details>
+    <main class="main-content flex-1 overflow-y-auto bg-axonDark relative w-full">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[150px] pointer-events-none"></div>
 
-      <details class="tema-accordion">
-        <summary>Unidad 2: Estructuras de Control de Flujo</summary>
-        <div class="tema-contenido">
-          <p><strong>Objetivo:</strong> Dominar las sentencias condicionales (If/Else) y los bucles (For/While) para controlar el flujo del programa.</p>
-          
-          <a href="programacion-archivos/unidad2-bucles.html" class="btn-curso">
-            Entrar a la Unidad 2 ➔
-          </a>
-        </div>
-      </details>
+      <div class="p-6 lg:p-12 max-w-4xl mx-auto relative z-10">
+        
+        <section class="mb-10 border-b border-gray-800 pb-8 flex items-center gap-6">
+          <div class="w-16 h-16 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center text-4xl shrink-0">
+            <i class="fa-brands fa-python"></i>
+          </div>
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-2">Fundamentos de <span class="text-blue-500">Programación</span></h2>
+            <p class="text-gray-400">Material de apoyo, guías de laboratorio y códigos estructurados.</p>
+          </div>
+        </section>
 
-    </section>
+        <section class="temario-container flex flex-col gap-4">
 
+          <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-colors shadow-lg">
+            <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-white bg-gray-900/50 hover:bg-gray-800 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="bg-gray-800 p-2 rounded-lg text-blue-400 group-open:bg-blue-500 group-open:text-white transition-colors">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <span class="text-lg">Unidad 1: Introducción a Python y Tipos de Datos</span>
+              </div>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="p-6 border-t border-gray-800 text-gray-400 bg-gray-900">
+              <p class="mb-4"><strong class="text-gray-200">Objetivo:</strong> Comprender la sintaxis básica, declaración de variables y la tipificación dinámica en Python.</p>
+              
+              <ul class="list-disc pl-5 mb-6 space-y-2 text-sm md:text-base">
+                <li>Lenguajes de programación.</li>
+                <li>IDEs de desarrollo.</li>
+                <li>Variables y tipos de datos <code class="text-blue-400 bg-blue-400/10 px-1 rounded">(int, float, str, bool)</code>.</li>
+                <li>Operadores aritméticos y lógicos.</li>
+              </ul>
+              
+              <a href="inf120-u1.html" class="inline-flex items-center gap-2 bg-axonBlue hover:bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold transition-all">
+                Entrar a la Unidad 1 <i class="fa-solid fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </details>
 
-    <!-- Más secciones... -->
-  </main>
+          <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-colors shadow-lg">
+            <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-white bg-gray-900/50 hover:bg-gray-800 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="bg-gray-800 p-2 rounded-lg text-blue-400 group-open:bg-blue-500 group-open:text-white transition-colors">
+                  <i class="fa-solid fa-code-branch"></i>
+                </div>
+                <span class="text-lg">Unidad 2: Estructuras de Control de Flujo</span>
+              </div>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="p-6 border-t border-gray-800 text-gray-400 bg-gray-900">
+              <p class="mb-6"><strong class="text-gray-200">Objetivo:</strong> Dominar las sentencias condicionales (If/Else) y los bucles (For/While) para controlar el flujo del programa.</p>
+              
+              <a href="programacion-archivos/unidad2-bucles.html" class="inline-flex items-center gap-2 bg-axonBlue hover:bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold transition-all">
+                Entrar a la Unidad 2 <i class="fa-solid fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </details>
+
+        </section>
+
+      </div>
+    </main>
   </div>
   
-  <!-- Fuente de iconos FontAwesome CDN -->
-  <!--Script de funcionalidades-->
-  <script src="../config.js"></script>
+  <script>
+      // Lógica del menú lateral nativa
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('mainSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+
+      function toggleSidebar() {
+          sidebar.classList.toggle('-translate-x-full');
+          overlay.classList.toggle('hidden');
+      }
+
+      sidebarToggle.addEventListener('click', toggleSidebar);
+      overlay.addEventListener('click', toggleSidebar);
+  </script>
 </body>
 </html>
