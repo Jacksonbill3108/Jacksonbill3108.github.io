@@ -1,94 +1,148 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Axon Technologies | Portafolio</title>
+  <title>Axon Lab | Ingeniería Electrónica y Soluciones Industriales</title>
   
-  <!-- Favicon -->
   <link rel="icon" href="assets/images/Logo.png" type="image/x-icon" />
   
-  <!-- Enlace al archivo CSS externo -->
-  <link rel="stylesheet" href="css/styles.css" />
-  <!-- Link de íconos para la redes sociales-->
-   <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-g9f+XObUVCQaH…(hash)…"
-      crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
-  <!--Top navigation-->
-  <header class="top-nav">
-    <div class="brand">
-      <img src="assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
-      <span class="brand-name">Axon Technologies</span>
-    </div>
-    <!-- Botón únicamente para el celular -->
-    <button id="navToggle" class="nav-btn" aria-label="Mostrar menú"><i class="fa-solid fa-caret-down"></i></button>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            axonBlue: '#0052CC',
+            axonDark: '#0A0F1A',
+            axonPanel: '#111827',
+            axonText: '#E2E8F0'
+          }
+        }
+      }
+    }
+  </script>
 
-    <nav class="site-menu">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#articulos">Artículos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="clases.html">Cursos</a></li>
-        <li><a href="#tienda">Tienda</a></li>
-      </ul>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Transiciones para el slider */
+    .slide { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease-in-out; z-index: 0; }
+    .slide.active { opacity: 1; z-index: 10; }
+    /* Estado activo del sidebar */
+    .sidebar.active { transform: translateX(0); }
+  </style>
+</head>
+
+<body class="bg-axonDark text-axonText font-sans h-screen flex flex-col overflow-hidden relative">
+
+  <header class="top-nav h-16 bg-axonDark/90 backdrop-blur-md border-b border-gray-800 flex items-center justify-between px-4 lg:px-8 z-50 shrink-0">
+    
+    <div class="brand flex items-center gap-3">
+      <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2 animate-pulse" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <img src="assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded" />
+      <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span class="text-blue-500">LAB</span></span>
+    </div>
+
+    <nav class="site-menu hidden md:flex gap-6 font-medium items-center">
+      <a href="#inicio" class="hover:text-blue-400 transition-colors">Inicio</a>
+      <a href="#servicios" class="hover:text-blue-400 transition-colors">Servicios Industriales</a>
+      <a href="clases.html" class="hover:text-blue-400 transition-colors text-blue-500">Capacitación</a>
+      <a href="https://wa.me/59171060734" target="_blank" class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
+        Cotizar
+      </a>
     </nav>
-    <!-- Botón para mostrar/ocultar el sidebar -->
-    <button id="sidebarToggle" class="toggle-btn" aria-label="Mostrar u ocultar perfil">☰</button>
   </header>
 
-  <div class="layout">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="profile">
-      <img src="assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
-      <h1>Ing. Julio Cesar Angulo</h1>
-      <p>Ingeniero Electrónico</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="projects.html">Proyectos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="social-icons">
-      <a href="https://github.com/Jacksonbill3108" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.youtube.com/@Ing.J.CesarAngulo" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </aside>
-  </div>
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="main-content">
-    <section id="inicio" class="inicio-header">
-      <h2>Bienvenido a Axon Technologies</h2>
-      <p>Especializado en automatización, electrónica y sistemas embebidos.</p>
-    </section>
+  <div class="layout flex flex-1 overflow-hidden relative">
     
-    <section class="hero-slider">
-      <div class="slider">
-        <img src="img/9.jpg" alt="proyecto 1" class="slide active">
-        <img src="img/10.jpg" alt="proyecto 1" class="slide">
-        <img src="img/11.jpg" alt="proyecto 1" class="slide">
+    <aside id="mainSidebar" class="sidebar fixed inset-y-0 left-0 pt-16 z-40 w-64 bg-axonPanel border-r border-gray-800 flex flex-col -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl">
+      
+      <nav class="flex-1 overflow-y-auto p-4 mt-4">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 px-4">Líneas de Negocio</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="#servicios" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors"><i class="fa-solid fa-microchip w-5 text-blue-400"></i> Electrónica PCB</a></li>
+          <li><a href="#automatizacion" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors"><i class="fa-solid fa-industry w-5 text-blue-400"></i> Automatización</a></li>
+          <li><a href="#redes" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors"><i class="fa-solid fa-network-wired w-5 text-blue-400"></i> Redes & CCTV</a></li>
+          
+          <div class="h-px bg-gray-800 my-2"></div>
+          
+          <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 px-4 mt-2">Empresa</p>
+          <li><a href="clases.html" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors"><i class="fa-solid fa-graduation-cap w-5 text-gray-400"></i> Plataforma Educativa</a></li>
+          <li><a href="#contacto" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors"><i class="fa-solid fa-headset w-5 text-gray-400"></i> Contacto Corporativo</a></li>
+        </ul>
+      </nav>
+
+      <div class="p-6 border-t border-gray-800 flex flex-col gap-4 bg-gray-900/30">
+        <a href="mailto:contacto@axonlab.com.bo" class="text-xs text-gray-400 hover:text-white transition-colors flex items-center gap-2 break-all">
+            <i class="fa-regular fa-envelope text-blue-500 text-sm"></i> contacto@axonlab.com.bo
+        </a>
+        
+        <div class="flex justify-between items-center px-2 pt-2 border-t border-gray-800/60 text-xl">
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="text-gray-500 hover:text-pink-500 hover:scale-110 transition-all">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="text-gray-500 hover:text-blue-600 hover:scale-110 transition-all">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" target="_blank" aria-label="LinkedIn" class="text-gray-500 hover:text-blue-400 hover:scale-110 transition-all">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://wa.me/59171060734" target="_blank" aria-label="WhatsApp" class="text-gray-500 hover:text-green-500 hover:scale-110 transition-all">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
       </div>
-      <div class="slider-caption">
-        <h2>Bienvenido</h2>
-        <p>Innovación en automatización y electrónica</p>
-    
+    </aside>
 
-    </section>
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden transition-opacity duration-300"></div>
 
-    <!-- Más secciones... -->
-  </main>
+    <main class="main-content flex-1 overflow-y-auto bg-axonDark relative w-full">
+      
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-96 bg-blue-600/10 blur-[120px] pointer-events-none"></div>
+
+      <div class="p-6 lg:p-12 max-w-7xl mx-auto relative z-10">
+        
+        <section id="inicio" class="mb-12 text-center lg:text-left pt-8">
+          <h2 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 tracking-tight">Ingeniería de <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-axonBlue">Precisión</span></h2>
+          <p class="text-lg md:text-xl text-gray-400 max-w-2xl">Soluciones avanzadas en automatización, electrónica industrial y despliegue de infraestructura tecnológica.</p>
+        </section>
+        
+        <section class="hero-slider relative w-full h-[45vh] md:h-[55vh] rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50 group mb-16">
+          <div class="slider w-full h-full relative bg-gray-900">
+            <img src="img/9.jpg" alt="Automatización" class="slide active">
+            <img src="img/10.jpg" alt="Desarrollo PCB" class="slide">
+            <img src="img/11.jpg" alt="Redes" class="slide">
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-axonDark/90 via-axonDark/20 to-transparent"></div>
+          
+          <div class="slider-caption absolute bottom-0 left-0 w-full p-8 md:p-12 z-20">
+            <h2 class="text-2xl md:text-4xl font-bold text-white mb-2">Desarrollo Tecnológico</h2>
+            <p class="text-blue-400 font-semibold tracking-wide uppercase text-sm">Desde el prototipo hasta la implementación industrial</p>
+          </div>
+        </section>
+
+        </div>
+    </main>
   </div>
   
-  <!-- Fuente de iconos FontAwesome CDN -->
-  <!--Script de funcionalidades-->
+  <script>
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('mainSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+
+      function toggleSidebar() {
+          sidebar.classList.toggle('-translate-x-full');
+          overlay.classList.toggle('hidden');
+      }
+
+      sidebarToggle.addEventListener('click', toggleSidebar);
+      overlay.addEventListener('click', toggleSidebar);
+  </script>
+  
   <script src="config.js"></script>
 </body>
 </html>
