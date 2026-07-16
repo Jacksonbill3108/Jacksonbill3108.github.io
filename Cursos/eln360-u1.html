@@ -1,114 +1,165 @@
-<!DOCTYPE html>
-<html lang="es">
+\<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Axon Technologies | Portafolio</title>
+  <title>Axon Lab | Unidad 1: Modelado de Sistemas Físicos</title>
   
-  <!-- Favicon -->
   <link rel="icon" href="../assets/images/Logo.png" type="image/x-icon" />
   
-  <!-- Enlace al archivo CSS externo -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <!-- Link de íconos para la redes sociales-->
-   <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-g9f+XObUVCQaH…(hash)…"
-      crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
-  <!--Top navigation-->
-  <header class="top-nav">
-    <div class="brand">
-      <img src="../assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
-      <span class="brand-name">Axon Technologies</span>
-    </div>
-    <!-- Botón únicamente para el celular -->
-    <button id="navToggle" class="nav-btn" aria-label="Mostrar menú"><i class="fa-solid fa-caret-down"></i></button>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            axonBlue: '#0052CC',
+            axonDark: '#0A0F1A',
+            axonPanel: '#111827',
+            axonText: '#E2E8F0'
+          }
+        }
+      }
+    }
+  </script>
 
-    <nav class="site-menu">
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="#articulos">Artículos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="../clases.html">Cursos</a></li>
-        <li><a href="#tienda">Tienda</a></li>
-      </ul>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    .sidebar.active { transform: translateX(0); }
+  </style>
+</head>
+
+<body class="bg-axonDark text-axonText font-sans h-screen flex flex-col overflow-hidden relative">
+
+  <header class="top-nav h-16 bg-axonDark/90 backdrop-blur-md border-b border-gray-800 flex items-center justify-between px-4 lg:px-8 z-50 shrink-0">
+    <div class="brand flex items-center gap-3">
+      <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <img src="../assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded" onerror="this.src='https://via.placeholder.com/32x32/0052CC/FFFFFF?text=AL'"/>
+      <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span class="text-blue-500">LAB</span></span>
+    </div>
+
+    <nav class="site-menu hidden md:flex gap-6 font-medium items-center">
+      <a href="../index.html" class="hover:text-blue-400 transition-colors">Inicio</a>
+      <a href="../index.html#servicios" class="hover:text-blue-400 transition-colors">Servicios</a>
+      <a href="../clases.html" class="hover:text-blue-400 transition-colors text-blue-500">Capacitación</a>
     </nav>
-    <!-- Botón para mostrar/ocultar el sidebar -->
-    <button id="sidebarToggle" class="toggle-btn" aria-label="Mostrar u ocultar perfil">☰</button>
   </header>
 
-  <div class="layout">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="profile">
-      <img src="../assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
-      <h1>Ing. Julio Cesar Angulo</h1>
-      <p>Ingeniero Electrónico</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="social-icons">
-      <a href="https://github.com/Jacksonbill3108" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.youtube.com/@Ing.J.CesarAngulo" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </aside>
-  </div>
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="main-content">
-  <div class="clase-contenido">
+  <div class="layout flex flex-1 overflow-hidden relative">
     
-    <a href="program.html" class="btn-volver">
-      <i class="fa-solid fa-arrow-left"></i> Volver al Temario
-    </a>
+    <aside id="mainSidebar" class="sidebar fixed inset-y-0 left-0 pt-16 z-40 w-64 bg-axonPanel border-r border-gray-800 flex flex-col -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl">
+      <nav class="flex-1 overflow-y-auto p-4 mt-4">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 px-4">Opciones de Clase</p>
+        <ul class="flex flex-col gap-2">
+          <li>
+            <a href="control.html" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors text-gray-300">
+              <i class="fa-solid fa-arrow-left w-5 text-gray-500"></i> Volver al Temario
+            </a>
+          </li>
+          <div class="h-px bg-gray-800 my-2"></div>
+          <li>
+            <a href="#" class="flex items-center gap-3 px-4 py-2 bg-blue-600/10 text-blue-400 rounded-md transition-colors">
+              <i class="fa-solid fa-book-open w-5"></i> Lectura Actual
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
 
-    <h1>Unidad 1: Modelado de sistemas físicos</h1>
-    <p>En esta unidad aprenderemos a modelar sistemas físicos mediante el uso de ecuaciones diferenciales, lo que nos permitirá representar matemáticamente el comportamiento de sistemas dinámicos como motores, circuitos eléctricos, sistemas mecánicos, entre otros.</p>
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden transition-opacity duration-300"></div>
 
-    <h2>1. Introducción a los sistemas de control</h2>
-    <p>
-        El objetivo principal de un sistema de control es mantener un proceso en las condiciones de operación deseadas, de forma segura y económica.
-        Para lograr esto, es fundamental entender el vocabulario básico que usaremos a lo largo de toda la carrera y las dos arquitecturas principales de control.
-    </p>
-    <h3>1.1. Conceptos básicos y terminologías</h3>
-    <p>Antes de diseñar un controlador, debemos definir las partes de nuestro sistema:</p>
-    <ul>
-        <li><strong>Variable controlada:</strong> Es la cantidad o condición que se mide y se controla. Suele ser la salida del sistema (por ejemplo, la temperatura de un cuarto). Al valor deseado de esta variable se le conoce como set point o punto de referencia.</li>
-        <li><strong>Variable manipulada:</strong> Es la cantidad o condición que el controlador varía para afectar el valor de la variable controlada (por ejemplo, la cantidad de combustible o el voltaje aplicado).</li>
-        <li><strong>Planta:</strong> Es el proceso o sistema físico que queremos controlar. Puede ser un motor, un robot, un sistema de climatización, etc.</li>
-        <li><strong>Perturbación:</strong> Es cualquier influencia externa que afecta el comportamiento de la planta y que no es controlada por el sistema (por ejemplo, cambios en la temperatura ambiente, cargas variables).</li >
-        <li><strong>Sensor:</strong> Dispositivo que mide la variable de interés (por ejemplo, temperatura, velocidad, posición) y proporciona retroalimentación al controlador.</li>
-        <li><strong>Controlador:</strong> Algoritmo o dispositivo que procesa la información del sensor y genera una señal de control para la planta.</li>
-        <li><strong>Actuador:</strong> Dispositivo que recibe la señal de control del controlador y actúa sobre la planta (por ejemplo, un motor eléctrico, una válvula).</li>
-    </ul>
-    <img src="../assets/images/Curso_control/planta_1.png" alt="PLanta de control" class="img-responsiva"/>
-    <pre><code>
-    # Ejemplo de tipado dinámico
-    edad = 23          # Tipo Entero (int)
-    peso = 70.5        # Tipo Flotante (float)
-    nombre = "Julio"   # Tipo Cadena (str)
+    <main class="main-content flex-1 overflow-y-auto bg-axonDark relative w-full">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-blue-600/5 blur-[120px] pointer-events-none"></div>
 
-    print(type(edad))
-    </code></pre>
+      <div class="p-6 lg:p-12 max-w-4xl mx-auto relative z-10">
+        
+        <a href="control.html" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-8 transition-colors text-sm font-semibold uppercase tracking-wider">
+          <i class="fa-solid fa-arrow-left"></i> Temario de Control I
+        </a>
 
-    <h2>2. Operadores Básicos</h2>
-    <p>Python soporta operaciones matemáticas directas...</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+          Unidad 1: <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-axonBlue">Modelado de sistemas físicos</span>
+        </h1>
+        
+        <p class="text-lg text-gray-300 mb-10 leading-relaxed bg-gray-900/50 p-6 rounded-xl border-l-4 border-blue-500 shadow-md">
+          En esta unidad aprenderemos a modelar sistemas físicos mediante el uso de ecuaciones diferenciales, lo que nos permitirá representar matemáticamente el comportamiento de sistemas dinámicos como motores, circuitos eléctricos y sistemas mecánicos.
+        </p>
 
-  </div>
-  </main>
+        <article class="prose prose-invert max-w-none text-gray-400">
+          
+          <h2 class="text-2xl font-bold text-white mb-4 mt-8 flex items-center gap-3">
+            <i class="fa-solid fa-microchip text-blue-500"></i> 1. Introducción a los sistemas de control
+          </h2>
+          <p class="mb-6 leading-relaxed">
+            El objetivo principal de un sistema de control es mantener un proceso en las condiciones de operación deseadas, de forma segura y económica. Para lograr esto, es fundamental entender el vocabulario básico que usaremos a lo largo de toda la carrera y las dos arquitecturas principales de control.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-200 mb-4 mt-8">1.1. Conceptos básicos y terminologías</h3>
+          <p class="mb-4 leading-relaxed">Antes de diseñar un controlador, debemos definir las partes de nuestro sistema:</p>
+          
+          <ul class="list-disc pl-6 mb-8 space-y-3 marker:text-blue-500 text-gray-300">
+            <li><strong class="text-white">Variable controlada:</strong> Es la cantidad o condición que se mide y se controla. Suele ser la salida del sistema (por ejemplo, la temperatura de un cuarto). Al valor deseado de esta variable se le conoce como <em>set point</em> o punto de referencia.</li>
+            <li><strong class="text-white">Variable manipulada:</strong> Es la cantidad o condición que el controlador varía para afectar el valor de la variable controlada (por ejemplo, la cantidad de combustible o el voltaje aplicado).</li>
+            <li><strong class="text-white">Planta:</strong> Es el proceso o sistema físico que queremos controlar. Puede ser un motor, un robot, un sistema de climatización, etc.</li>
+            <li><strong class="text-white">Perturbación:</strong> Es cualquier influencia externa que afecta el comportamiento de la planta y que no es controlada por el sistema.</li>
+            <li><strong class="text-white">Sensor:</strong> Dispositivo que mide la variable de interés y proporciona retroalimentación al controlador.</li>
+            <li><strong class="text-white">Controlador:</strong> Algoritmo o dispositivo que procesa la información del sensor y genera una señal de control.</li>
+            <li><strong class="text-white">Actuador:</strong> Dispositivo que recibe la señal de control y actúa sobre la planta (por ejemplo, un motor o válvula).</li>
+          </ul>
+
+          <div class="my-10 bg-gray-900 p-4 rounded-2xl border border-gray-800 shadow-xl">
+            <img src="../assets/images/Curso_control/planta_1.png" alt="Diagrama de Planta de Control" class="w-full h-auto rounded-xl" onerror="this.src='https://via.placeholder.com/800x400/111827/0052CC?text=Diagrama+del+Sistema+de+Control'"/>
+            <p class="text-center text-sm text-gray-500 mt-3 italic">Figura 1.1: Diagrama general de un sistema de control.</p>
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-200 mb-4 mt-8">Ejemplo Práctico en Código</h3>
+          <div class="bg-[#0d1117] border border-gray-700 rounded-xl overflow-hidden mb-10 shadow-2xl">
+            <div class="flex items-center px-4 py-2.5 bg-gray-800/80 border-b border-gray-700">
+              <div class="flex gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <span class="ml-4 text-xs text-gray-400 font-mono">ejemplo_tipos.py</span>
+            </div>
+            <div class="p-5 overflow-x-auto">
+              <pre class="font-mono text-sm leading-loose"><code class="text-gray-300"><span class="text-gray-500"># Ejemplo de tipado dinámico en Python</span>
+<span class="text-blue-400">edad</span> = <span class="text-orange-400">23</span>          <span class="text-gray-500"># Tipo Entero (int)</span>
+<span class="text-blue-400">peso</span> = <span class="text-orange-400">70.5</span>        <span class="text-gray-500"># Tipo Flotante (float)</span>
+<span class="text-blue-400">nombre</span> = <span class="text-green-400">"Julio"</span>   <span class="text-gray-500"># Tipo Cadena (str)</span>
+
+<span class="text-purple-400">print</span>(<span class="text-purple-400">type</span>(edad))</code></pre>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white mb-4 mt-12 flex items-center gap-3">
+            <i class="fa-solid fa-calculator text-blue-500"></i> 2. Operadores Básicos
+          </h2>
+          <p class="mb-6 leading-relaxed">
+            Python soporta operaciones matemáticas directas que utilizaremos constantemente para modelar nuestras ecuaciones diferenciales y calcular funciones de transferencia en el espacio discreto...
+          </p>
+          
+        </article>
+
+      </div>
+    </main>
   </div>
   
-  <!-- Fuente de iconos FontAwesome CDN -->
-  <!--Script de funcionalidades-->
-  <script src="../config.js"></script>
+  <script>
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('mainSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+
+      function toggleSidebar() {
+          sidebar.classList.toggle('-translate-x-full');
+          overlay.classList.toggle('hidden');
+      }
+
+      sidebarToggle.addEventListener('click', toggleSidebar);
+      overlay.addEventListener('click', toggleSidebar);
+  </script>
 </body>
 </html>

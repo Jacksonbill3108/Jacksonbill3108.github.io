@@ -1,190 +1,254 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Axon Technologies | Portafolio</title>
+  <title>Axon Lab | Temario de Teoría de Control I</title>
   
-  <!-- Favicon -->
   <link rel="icon" href="../assets/images/Logo.png" type="image/x-icon" />
   
-  <!-- Enlace al archivo CSS externo -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <!-- Link de íconos para la redes sociales-->
-   <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-g9f+XObUVCQaH…(hash)…"
-      crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
-  <!--Top navigation-->
-  <header class="top-nav">
-    <div class="brand">
-      <img src="../assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
-      <span class="brand-name">Axon Technologies</span>
-    </div>
-    <!-- Botón únicamente para el celular -->
-    <button id="navToggle" class="nav-btn" aria-label="Mostrar menú"><i class="fa-solid fa-caret-down"></i></button>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            axonBlue: '#0052CC',
+            axonDark: '#0A0F1A',
+            axonPanel: '#111827',
+            axonText: '#E2E8F0'
+          }
+        }
+      }
+    }
+  </script>
 
-    <nav class="site-menu">
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="#articulos">Artículos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="../clases.html">Cursos</a></li>
-        <li><a href="#tienda">Tienda</a></li>
-      </ul>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    /* Oculta los marcadores nativos del navegador en los acordeones */
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+
+<body class="bg-axonDark text-axonText font-sans h-screen flex flex-col overflow-hidden relative">
+
+  <header class="top-nav h-16 bg-axonDark/90 backdrop-blur-md border-b border-gray-800 flex items-center justify-between px-4 lg:px-8 z-50 shrink-0">
+    <div class="brand flex items-center gap-3">
+      <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <img src="../assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded" onerror="this.src='https://via.placeholder.com/32x32/0052CC/FFFFFF?text=AL'"/>
+      <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span class="text-blue-500">LAB</span></span>
+    </div>
+
+    <nav class="site-menu hidden md:flex gap-6 font-medium items-center">
+      <a href="../index.html" class="hover:text-blue-400 transition-colors">Inicio</a>
+      <a href="../index.html#servicios" class="hover:text-blue-400 transition-colors">Servicios</a>
+      <a href="../clases.html" class="hover:text-blue-400 transition-colors text-blue-500">Capacitación</a>
     </nav>
-    <!-- Botón para mostrar/ocultar el sidebar -->
-    <button id="sidebarToggle" class="toggle-btn" aria-label="Mostrar u ocultar perfil">☰</button>
   </header>
 
-  <div class="layout">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="profile">
-      <img src="../assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
-      <h1>Ing. Julio Cesar Angulo</h1>
-      <p>Ingeniero Electrónico</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="social-icons">
-      <a href="https://github.com/Jacksonbill3108" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.youtube.com/@Ing.J.CesarAngulo" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </aside>
-  </div>
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="main-content">
-    <section class="seccion-header">
-        <h2>Recursos Académicos y Docencia</h2>
-        <p>Material de apoyo, guías de laboratorio y códigos para mis estudiantes.</p>
-    </section>
+  <div class="layout flex flex-1 overflow-hidden relative">
+    
+    <aside id="mainSidebar" class="sidebar fixed inset-y-0 left-0 pt-16 z-40 w-64 bg-axonPanel border-r border-gray-800 flex flex-col -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl">
+      <nav class="flex-1 overflow-y-auto p-4 mt-4">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 px-4">Academia Axon</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="../clases.html" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors"><i class="fa-solid fa-arrow-left w-5 text-gray-400"></i> Volver a Cursos</a></li>
+          <li><a href="#" class="flex items-center gap-3 px-4 py-2 bg-blue-600/10 text-blue-400 rounded-md transition-colors"><i class="fa-solidxl fa-solid fa-wave-square w-5"></i> Teoría de Control I</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-    <section class="temario-container">
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden transition-opacity duration-300"></div>
 
-      <details class="tema-accordion">
-        <summary>Unidad 1: Modelado de sistemas físicos</summary>
-        <div class="tema-contenido">
-          <p><strong>Objetivo:</strong> Comprender los conceptos fundamentales de los sistemas de control.</p>
-          <ul>
-            <li>Introducción a los sistemas de control: Lazo abierto y lazo cerrado.</li>
-            <li>Herramientas matemáticas para modelado de sistemas.</li>
-            <li>Modelado de sistemas eléctricos.</li>
-            <li>Modelado de sistemas mecánicos.</li>
-            <li>Analogías entre sistemas</li>
-            <li>Función de transferencia</li>
-          </ul>
-          
-          <a href="eln360-u1.html" class="btn-curso">
-            Entrar a la Unidad 1 ➔
-          </a>
-        </div>
-      </details>
+    <main class="main-content flex-1 overflow-y-auto bg-axonDark relative w-full">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[150px] pointer-events-none"></div>
 
+      <div class="p-6 lg:p-12 max-w-4xl mx-auto relative z-10">
+        
+        <section class="mb-10 border-b border-gray-800 pb-8 flex items-center gap-6">
+          <div class="w-16 h-16 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center text-4xl shrink-0">
+            <i class="fa-solid fa-wave-square"></i>
+          </div>
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-2">Teoría de <span class="text-blue-500">Control I</span></h2>
+            <p class="text-gray-400">Guías de laboratorio detalladas, simulaciones matemáticas y análisis dinámico de sistemas estables.</p>
+          </div>
+        </section>
 
-      <details class="tema-accordion">
-        <summary>Unidad 2: Análisis de respuesta temporal</summary>
-        <div class="tema-contenido">
-          <p><strong>Objetivo:</strong> Analizar la respuesta temporal de sistemas de control lineales.</p>
-          <ul>
-            <li>Sistemas de primer orden.</li>
-            <li>Sistemas de segundo orden.</li>
-            <li>Especificaciones de desempeño.</li>
-            <li>Error en estado estable.</li>
-          </ul>
-          <a href="programacion-archivos/unidad2-bucles.html" class="btn-curso">
-            Entrar a la Unidad 2 ➔
-          </a>
-        </div>
-      </details>
+        <section class="temario-container flex flex-col gap-4">
 
-      <details class="tema-accordion">
-        <summary>Unidad 3: Estabilidad y análisis de frecuencia</summary>
-        <div class="tema-contenido">
-          <p><strong>Objetivo:</strong> Determinamos si el sistema es seguro u oscilará descontroladamente.</p>
-          <ul>
-            <li>Concepto de estabilidad.</li>
-            <li>Criterio de Routh Hurwitz.</li>
-            <li>El lugar geométrico de las raices.</li>
-            <li>Respuesta en frecuencia.</li>
-            <li>Margenes de estabilidad.</li>
-          </ul>
-          <a href="programacion-archivos/unidad2-bucles.html" class="btn-curso">
-            Entrar a la Unidad 2 ➔
-          </a>
-        </div>
-      </details>
+          <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-colors shadow-lg">
+            <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-white bg-gray-900/50 hover:bg-gray-800 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="bg-gray-800 p-2 rounded-lg text-blue-400 group-open:bg-blue-500 group-open:text-white transition-colors">
+                  <i class="fa-solid fa-bezier-curve w-5 text-center"></i>
+                </div>
+                <span class="text-base md:text-lg">Unidad 1: Modelado de sistemas físicos</span>
+              </div>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="p-6 border-t border-gray-800 text-gray-400 bg-gray-900">
+              <p class="mb-4"><strong class="text-gray-200">Objetivo:</strong> Comprender los conceptos fundamentales de los sistemas de control y su representación matemática matemática.</p>
+              <ul class="list-disc pl-5 mb-6 space-y-1.5 text-sm md:text-base">
+                <li>Introducción a los sistemas de control: Lazo abierto y lazo cerrado.</li>
+                <li>Herramientas matemáticas para modelado de sistemas.</li>
+                <li>Modelado de sistemas eléctricos y mecánicos.</li>
+                <li>Analogías entre sistemas y Función de transferencia.</li>
+              </ul>
+              <a href="eln360-u1.html" class="inline-flex items-center gap-2 bg-axonBlue hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold transition-all text-sm">
+                Entrar a la Unidad 1 <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </details>
 
-      <details class="tema-accordion">
-        <summary>Unidad 4: Diseño de controladores clásicos</summary>
-        <div class="tema-contenido">
-          <p><strong>Objetivo:</strong> Unidad estrella donde los estudiantes aprenden a corregir el comportamiento del sistemas.</p>
-          <ul>
-            <li>Acción proporcional.</li>
-            <li>Acción integral.</li>
-            <li>Acción derivativa.</li>
-            <li>Métodos de sintonización.</li>
-            <li>Efectos de los ceros.</li>
-          </ul>
-          <a href="programacion-archivos/unidad2-bucles.html" class="btn-curso">
-            Entrar a la Unidad 2 ➔
-          </a>
-        </div>
-      </details>
+          <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-colors shadow-lg">
+            <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-white bg-gray-900/50 hover:bg-gray-800 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="bg-gray-800 p-2 rounded-lg text-blue-400 group-open:bg-blue-500 group-open:text-white transition-colors">
+                  <i class="fa-solid fa-clock-rotate-left w-5 text-center"></i>
+                </div>
+                <span class="text-base md:text-lg">Unidad 2: Análisis de respuesta temporal</span>
+              </div>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="p-6 border-t border-gray-800 text-gray-400 bg-gray-900">
+              <p class="mb-4"><strong class="text-gray-200">Objetivo:</strong> Analizar la respuesta temporal de sistemas de control lineales ante diferentes señales de entrada.</p>
+              <ul class="list-disc pl-5 mb-6 space-y-1.5 text-sm md:text-base">
+                <li>Sistemas de primer orden y segundo orden.</li>
+                <li>Especificaciones de desempeño dinámico.</li>
+                <li>Error en estado estable (estacionario).</li>
+              </ul>
+              <a href="programacion-archivos/unidad2-bucles.html" class="inline-flex items-center gap-2 bg-axonBlue hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold transition-all text-sm">
+                Entrar a la Unidad 2 <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </details>
 
+          <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-colors shadow-lg">
+            <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-white bg-gray-900/50 hover:bg-gray-800 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="bg-gray-800 p-2 rounded-lg text-blue-400 group-open:bg-blue-500 group-open:text-white transition-colors">
+                  <i class="fa-solid fa-chart-line w-5 text-center"></i>
+                </div>
+                <span class="text-base md:text-lg">Unidad 3: Estabilidad y análisis de frecuencia</span>
+              </div>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="p-6 border-t border-gray-800 text-gray-400 bg-gray-900">
+              <p class="mb-4"><strong class="text-gray-200">Objetivo:</strong> Determinar los criterios de estabilidad absoluta y relativa para evitar oscilaciones descontroladas.</p>
+              <ul class="list-disc pl-5 mb-6 space-y-1.5 text-sm md:text-base">
+                <li>Concepto de estabilidad y Criterio de Routh-Hurwitz.</li>
+                <li>El lugar geométrico de las raíces (LGR).</li>
+                <li>Respuesta en frecuencia y Márgenes de estabilidad.</li>
+              </ul>
+              <a href="programacion-archivos/unidad2-bucles.html" class="inline-flex items-center gap-2 bg-axonBlue hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold transition-all text-sm">
+                Entrar a la Unidad 3 <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </details>
 
-      <details class="tema-accordion">
-        <summary>Unidad 5: Control digital e implementación</summary>
-        <div class="tema-contenido">
-          <p><strong>Objetivo:</strong> Analizar la respuesta temporal de sistemas de control lineales.</p>
-          <ul>
-            <li>Introducción al control digital.</li>
-            <li>Transformada Z.</li>
-            <li>Discretización de controladores.</li>
-            <li>Algoritmos PID en códigos.</li>
-            
-          </ul>
-          <a href="programacion-archivos/unidad2-bucles.html" class="btn-curso">
-            Entrar a la Unidad 2 ➔
-          </a>
-        </div>
-      </details>
+          <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-colors shadow-lg">
+            <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-white bg-gray-900/50 hover:bg-gray-800 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="bg-gray-800 p-2 rounded-lg text-blue-400 group-open:bg-blue-500 group-open:text-white transition-colors">
+                  <i class="fa-solid fa-sliders w-5 text-center"></i>
+                </div>
+                <span class="text-base md:text-lg">Unidad 4: Diseño de controladores clásicos</span>
+              </div>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="p-6 border-t border-gray-800 text-gray-400 bg-gray-900">
+              <p class="mb-4"><strong class="text-gray-200">Objetivo:</strong> Aprender las metodologías de ingeniería industrial para corregir y sintonizar el comportamiento de plantas reales.</p>
+              <ul class="list-disc pl-5 mb-6 space-y-1.5 text-sm md:text-base">
+                <li>Acción Proporcional (P), Integral (I) y Derivativa (D).</li>
+                <li>Métodos clásicos de sintonización (Ziegler-Nichols).</li>
+                <li>Efectos de los ceros y polos en la compensación del lazo.</li>
+              </ul>
+              <a href="programacion-archivos/unidad2-bucles.html" class="inline-flex items-center gap-2 bg-axonBlue hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold transition-all text-sm">
+                Entrar a la Unidad 4 <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </details>
 
-      <details class="tema-accordion">
-        <summary>Unidad 6: Proyectos e implementaciones</summary>
-        <div class="tema-contenido">
-          <p><strong>Objetivo:</strong> Análisis de casos de aplicación de sistemas de control.</p>
-          <ul>
-            <li>Proyecto 1.</li>
-            <li>Proyecto 2.</li>
-            <li>Proyecto 3.</li>
-            <li>Proyecto 4.</li>
-          </ul>
-          <a href="programacion-archivos/unidad2-bucles.html" class="btn-curso">
-            Entrar a la Unidad 2 ➔
-          </a>
-        </div>
-      </details>
+          <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-colors shadow-lg">
+            <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-white bg-gray-900/50 hover:bg-gray-800 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="bg-gray-800 p-2 rounded-lg text-blue-400 group-open:bg-blue-500 group-open:text-white transition-colors">
+                  <i class="fa-solid fa-microchip w-5 text-center"></i>
+                </div>
+                <span class="text-base md:text-lg">Unidad 5: Control digital e implementación</span>
+              </div>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="p-6 border-t border-gray-800 text-gray-400 bg-gray-900">
+              <p class="mb-4"><strong class="text-gray-200">Objetivo:</strong> Analizar la discretización de algoritmos para su ejecución en microcontroladores y PLCs.</p>
+              <ul class="list-disc pl-5 mb-6 space-y-1.5 text-sm md:text-base">
+                <li>Introducción al control discreto y Transformada Z.</li>
+                <li>Métodos de discretización de controladores continuos.</li>
+                <li>Estructura y desarrollo del algoritmo PID en código de ingeniería.</li>
+              </ul>
+              <a href="programacion-archivos/unidad2-bucles.html" class="inline-flex items-center gap-2 bg-axonBlue hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold transition-all text-sm">
+                Entrar a la Unidad 5 <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </details>
 
-    </section>
+          <details class="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-colors shadow-lg">
+            <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-white bg-gray-900/50 hover:bg-gray-800 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="bg-gray-800 p-2 rounded-lg text-blue-400 group-open:bg-blue-500 group-open:text-white transition-colors">
+                  <i class="fa-solid fa-diagram-project w-5 text-center"></i>
+                </div>
+                <span class="text-base md:text-lg">Unidad 6: Proyectos e implementaciones</span>
+              </div>
+              <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="p-6 border-t border-gray-800 text-gray-400 bg-gray-900">
+              <p class="mb-4"><strong class="text-gray-200">Objetivo:</strong> Evaluación física y análisis de casos prácticos de aplicación en automatización industrial.</p>
+              <ul class="list-disc pl-5 mb-6 space-y-1.5 text-sm md:text-base">
+                <li>Modelado y control de sistemas térmicos/hidráulicos.</li>
+                <li>Prototipos prácticos integrados y revisión de documentación de ingeniería.</li>
+              </ul>
+              <a href="programacion-archivos/unidad2-bucles.html" class="inline-flex items-center gap-2 bg-axonBlue hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold transition-all text-sm">
+                Entrar a la Unidad 6 <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </details>
 
+        </section>
 
-    <!-- Más secciones... -->
-  </main>
+      </div>
+    </main>
   </div>
   
-  <!-- Fuente de iconos FontAwesome CDN -->
-  <!--Script de funcionalidades-->
-  <script src="../config.js"></script>
+  <script>
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('mainSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+
+      function toggleSidebar() {
+          sidebar.classList.toggle('-translate-x-full');
+          overlay.classList.toggle('hidden');
+      }
+
+      sidebarToggle.addEventListener('click', toggleSidebar);
+      overlay.addEventListener('click', toggleSidebar);
+  </script>
 </body>
 </html>
