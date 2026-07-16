@@ -32,23 +32,41 @@
 
 <body class="bg-axonDark text-axonText font-sans h-screen flex flex-col overflow-hidden relative">
 
-  <header class="top-nav h-16 bg-axonDark/90 backdrop-blur-md border-b border-gray-800 flex items-center justify-between px-4 lg:px-8 z-50 shrink-0">
-    <div class="brand flex items-center gap-3">
-      <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2" aria-label="Abrir menú">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <img src="assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded" />
-      <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span class="text-blue-500">LAB</span></span>
-    </div>
+  <header class="top-nav h-16 bg-axonDark/90 backdrop-blur-md border-b border-gray-800 flex items-center justify-between px-4 lg:px-8 z-50 shrink-0 relative">
+      
+      <div class="brand flex items-center gap-3">
+        <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2" aria-label="Abrir menú lateral">
+          <i class="fa-solid fa-bars-staggered"></i> </button>
+        <img src="assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded" onerror="this.src='https://via.placeholder.com/32x32/0052CC/FFFFFF?text=AL'"/>
+        <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span class="text-blue-500">LAB</span></span>
+      </div>
 
-    <nav class="site-menu hidden md:flex gap-6 font-medium items-center">
-      <a href="index.html" class="hover:text-blue-400 transition-colors">Inicio</a>
-      <a href="index.html#servicios" class="hover:text-blue-400 transition-colors">Servicios Industriales</a>
-      <a href="clases.html" class="hover:text-blue-400 transition-colors text-blue-500">Capacitación</a>
-      <a href="https://wa.me/59171060734" target="_blank" class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
-        Cotizar
-      </a>
-    </nav>
+      <nav class="site-menu hidden md:flex gap-6 font-medium items-center">
+        <a href="index.html" class="hover:text-blue-400 transition-colors">Inicio</a>
+        <a href="servicios.html" class="hover:text-blue-400 transition-colors">Servicios</a>
+        <a href="alquiler.html" class="hover:text-blue-400 transition-colors">Alquiler</a>
+        <a href="clases.html" class="hover:text-blue-400 transition-colors">Capacitación</a>
+        <a href="tienda.html" class="hover:text-blue-400 transition-colors">Tienda</a>
+        <a href="https://wa.me/59171060734" target="_blank" class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
+          Cotizar
+        </a>
+      </nav>
+
+      <div class="md:hidden flex items-center">
+        <button id="mobileMenuToggle" class="text-2xl text-gray-300 hover:text-white focus:outline-none transition-colors" aria-label="Abrir menú principal">
+          <i class="fa-solid fa-ellipsis-vertical"></i> </button>
+
+        <div id="mobileDropdown" class="absolute top-16 right-4 bg-axonPanel border border-gray-700 rounded-xl shadow-2xl p-2 flex flex-col gap-1 w-48 opacity-0 invisible scale-95 origin-top-right transition-all duration-200 z-50">
+          <a href="index.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-house w-5 text-blue-500"></i> Inicio</a>
+          <a href="servicios.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-industry w-5 text-blue-500"></i> Servicios</a>
+          <a href="alquiler.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-boxes-packing w-5 text-blue-500"></i> Alquiler</a>
+          <a href="clases.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-graduation-cap w-5 text-blue-500"></i> Capacitación</a>
+          <a href="tienda.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-cart-shopping w-5 text-blue-500"></i> Tienda</a>
+          <a href="https://wa.me/59171060734" target="_blank" class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
+          Cotizar
+        </a>
+        </div>
+      </div>
   </header>
 
   <div class="layout flex flex-1 overflow-hidden relative">
@@ -119,7 +137,7 @@
   </div>
   
   <script>
-      // Lógica del menú lateral
+      // 1. Lógica del menú lateral (Sidebar Izquierdo)
       const sidebarToggle = document.getElementById('sidebarToggle');
       const sidebar = document.getElementById('mainSidebar');
       const overlay = document.getElementById('sidebarOverlay');
@@ -131,6 +149,23 @@
 
       sidebarToggle.addEventListener('click', toggleSidebar);
       overlay.addEventListener('click', toggleSidebar);
+
+      // 2. Lógica del Menú Desplegable Superior (Móviles)
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileDropdown = document.getElementById('mobileDropdown');
+
+      mobileMenuToggle.addEventListener('click', () => {
+          mobileDropdown.classList.toggle('opacity-0');
+          mobileDropdown.classList.toggle('invisible');
+          mobileDropdown.classList.toggle('scale-95');
+      });
+
+      // Cerrar el menú desplegable si se hace clic fuera de él
+      document.addEventListener('click', (event) => {
+          if (!mobileMenuToggle.contains(event.target) && !mobileDropdown.contains(event.target)) {
+              mobileDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+          }
+      });
   </script>
 </body>
 </html>

@@ -18,25 +18,41 @@
 </head>
 <body>
   <!--Top navigation-->
-  <header class="top-nav">
-    <div class="brand">
-      <img src="assets/images/Logo.png" alt="Logo Axon Technologies" class="logo" />
-      <span class="brand-name">Axon Technologies</span>
-    </div>
-    <!-- Botón únicamente para el celular -->
-    <button id="navToggle" class="nav-btn" aria-label="Mostrar menú"><i class="fa-solid fa-caret-down"></i></button>
+  <header class="top-nav h-16 bg-axonDark/90 backdrop-blur-md border-b border-gray-800 flex items-center justify-between px-4 lg:px-8 z-50 shrink-0 relative">
+      
+      <div class="brand flex items-center gap-3">
+        <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2" aria-label="Abrir menú lateral">
+          <i class="fa-solid fa-bars-staggered"></i> </button>
+        <img src="assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded" onerror="this.src='https://via.placeholder.com/32x32/0052CC/FFFFFF?text=AL'"/>
+        <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span class="text-blue-500">LAB</span></span>
+      </div>
 
-    <nav class="site-menu">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="#articulos">Artículos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#Cursos">Cursos</a></li>
-        <li><a href="#tienda">Tienda</a></li>
-      </ul>
-    </nav>
-    <!-- Botón para mostrar/ocultar el sidebar -->
-    <button id="sidebarToggle" class="toggle-btn" aria-label="Mostrar u ocultar perfil">☰</button>
+      <nav class="site-menu hidden md:flex gap-6 font-medium items-center">
+        <a href="index.html" class="hover:text-blue-400 transition-colors">Inicio</a>
+        <a href="servicios.html" class="hover:text-blue-400 transition-colors">Servicios</a>
+        <a href="alquiler.html" class="hover:text-blue-400 transition-colors">Alquiler</a>
+        <a href="clases.html" class="hover:text-blue-400 transition-colors">Capacitación</a>
+        <a href="tienda.html" class="hover:text-blue-400 transition-colors">Tienda</a>
+        <a href="https://wa.me/59171060734" target="_blank" class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
+          Cotizar
+        </a>
+      </nav>
+
+      <div class="md:hidden flex items-center">
+        <button id="mobileMenuToggle" class="text-2xl text-gray-300 hover:text-white focus:outline-none transition-colors" aria-label="Abrir menú principal">
+          <i class="fa-solid fa-ellipsis-vertical"></i> </button>
+
+        <div id="mobileDropdown" class="absolute top-16 right-4 bg-axonPanel border border-gray-700 rounded-xl shadow-2xl p-2 flex flex-col gap-1 w-48 opacity-0 invisible scale-95 origin-top-right transition-all duration-200 z-50">
+          <a href="index.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-house w-5 text-blue-500"></i> Inicio</a>
+          <a href="servicios.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-industry w-5 text-blue-500"></i> Servicios</a>
+          <a href="alquiler.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-boxes-packing w-5 text-blue-500"></i> Alquiler</a>
+          <a href="clases.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-graduation-cap w-5 text-blue-500"></i> Capacitación</a>
+          <a href="tienda.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-cart-shopping w-5 text-blue-500"></i> Tienda</a>
+          <a href="https://wa.me/59171060734" target="_blank" class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
+          Cotizar
+        </a>
+        </div>
+      </div>
   </header>
 
   <div class="layout">
