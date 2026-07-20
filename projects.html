@@ -1,115 +1,197 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Axon Technologies | Portafolio</title>
+  <title>Axon Lab | Portafolio y Desarrollo</title>
   
-  <!-- Favicon -->
   <link rel="icon" href="assets/images/Logo.png" type="image/x-icon" />
   
-  <!-- Enlace al archivo CSS externo -->
-  <link rel="stylesheet" href="css/styles.css" />
-  <!-- Link de íconos para la redes sociales-->
-   <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-g9f+XObUVCQaH…(hash)…"
-      crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            axonBlue: '#0052CC',
+            axonDark: '#0A0F1A',
+            axonPanel: '#111827',
+            axonText: '#E2E8F0'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    .sidebar.active { transform: translateX(0); }
+  </style>
 </head>
-<body>
-  <!--Top navigation-->
+
+<body class="bg-axonDark text-axonText font-sans h-screen flex flex-col overflow-hidden relative">
+
   <header class="top-nav h-16 bg-axonDark/90 backdrop-blur-md border-b border-gray-800 flex items-center justify-between px-4 lg:px-8 z-50 shrink-0 relative">
       
       <div class="brand flex items-center gap-3">
-        <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2" aria-label="Abrir menú lateral">
+        <button id="sidebarToggle" class="text-2xl hover:text-blue-400 focus:outline-none transition-colors mr-2"
+          aria-label="Abrir menú lateral">
           <i class="fa-solid fa-bars-staggered"></i> </button>
-        <img src="assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded" onerror="this.src='https://via.placeholder.com/32x32/0052CC/FFFFFF?text=AL'"/>
-        <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span class="text-blue-500">LAB</span></span>
+        <img src="assets/images/Logo.png" alt="Axon Lab" class="h-8 w-8 object-contain bg-white/10 rounded"
+          onerror="this.src='https://via.placeholder.com/32x32/0052CC/FFFFFF?text=AL'" />
+        <span class="brand-name text-xl font-bold tracking-wider text-white">AXON <span
+            class="text-blue-500">LAB</span></span>
       </div>
-
+      
       <nav class="site-menu hidden md:flex gap-6 font-medium items-center">
         <a href="index.html" class="hover:text-blue-400 transition-colors">Inicio</a>
         <a href="servicios.html" class="hover:text-blue-400 transition-colors">Servicios</a>
         <a href="alquiler.html" class="hover:text-blue-400 transition-colors">Alquiler</a>
         <a href="clases.html" class="hover:text-blue-400 transition-colors">Capacitación</a>
         <a href="tienda.html" class="hover:text-blue-400 transition-colors">Tienda</a>
-        <a href="https://wa.me/59171060734" target="_blank" class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
+        <a href="https://wa.me/59171060734" target="_blank"
+          class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
           Cotizar
         </a>
       </nav>
-
+      
       <div class="md:hidden flex items-center">
-        <button id="mobileMenuToggle" class="text-2xl text-gray-300 hover:text-white focus:outline-none transition-colors" aria-label="Abrir menú principal">
+        <button id="mobileMenuToggle" class="text-2xl text-gray-300 hover:text-white focus:outline-none transition-colors"
+          aria-label="Abrir menú principal">
           <i class="fa-solid fa-ellipsis-vertical"></i> </button>
-
-        <div id="mobileDropdown" class="absolute top-16 right-4 bg-axonPanel border border-gray-700 rounded-xl shadow-2xl p-2 flex flex-col gap-1 w-48 opacity-0 invisible scale-95 origin-top-right transition-all duration-200 z-50">
-          <a href="index.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-house w-5 text-blue-500"></i> Inicio</a>
-          <a href="servicios.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-industry w-5 text-blue-500"></i> Servicios</a>
-          <a href="alquiler.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-boxes-packing w-5 text-blue-500"></i> Alquiler</a>
-          <a href="clases.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-graduation-cap w-5 text-blue-500"></i> Capacitación</a>
-          <a href="tienda.html" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i class="fa-solid fa-cart-shopping w-5 text-blue-500"></i> Tienda</a>
-          <a href="https://wa.me/59171060734" target="_blank" class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
-          Cotizar
-        </a>
+      
+        <div id="mobileDropdown"
+          class="absolute top-16 right-4 bg-axonPanel border border-gray-700 rounded-xl shadow-2xl p-2 flex flex-col gap-1 w-48 opacity-0 invisible scale-95 origin-top-right transition-all duration-200 z-50">
+          <a href="index.html"
+            class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i
+              class="fa-solid fa-house w-5 text-blue-500"></i> Inicio</a>
+          <a href="servicios.html"
+            class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i
+              class="fa-solid fa-industry w-5 text-blue-500"></i> Servicios</a>
+          <a href="alquiler.html"
+            class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i
+              class="fa-solid fa-boxes-packing w-5 text-blue-500"></i> Alquiler</a>
+          <a href="clases.html"
+            class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i
+              class="fa-solid fa-graduation-cap w-5 text-blue-500"></i> Capacitación</a>
+          <a href="tienda.html"
+            class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-blue-600/20 rounded-lg transition-colors"><i
+              class="fa-solid fa-cart-shopping w-5 text-blue-500"></i> Tienda</a>
+          <a href="https://wa.me/59171060734" target="_blank"
+            class="bg-axonBlue hover:bg-blue-600 text-white px-4 py-1.5 rounded-md font-semibold transition-all text-sm shadow-[0_0_10px_rgba(0,82,204,0.4)]">
+            Cotizar
+          </a>
         </div>
       </div>
   </header>
 
-  <div class="layout">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="profile">
-      <img src="assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" />
-      <h1>Ing. Julio Cesar Angulo</h1>
-      <p>Ingeniero Electrónico</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="social-icons">
-      <a href="https://github.com/Jacksonbill3108" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.youtube.com/@Ing.J.CesarAngulo" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </aside>
-  </div>
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="main-content">
-    <section class="seccion-header">
-        <h2>Proyectos vigentes</h2>
-        <p>Portafolio de proyectos personales.</p>
-    </section>
-    <section class="cursos-grid">
+  <div class="layout flex flex-1 overflow-hidden relative">
+    
+    <aside id="mainSidebar" class="sidebar fixed inset-y-0 left-0 pt-16 z-40 w-64 bg-axonPanel border-r border-gray-800 flex flex-col -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl">
+      
+      <div class="p-6 border-b border-gray-800 flex flex-col items-center text-center">
+        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-blue-500 mb-3 shadow-[0_0_15px_rgba(0,82,204,0.4)]">
+          <img src="assets/images/Bio-photo.jpg" alt="Ing. J Cesar Angulo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/111827/0052CC?text=JC'"/>
+        </div>
+        <h2 class="text-white font-bold text-lg">Ing. Julio Cesar Angulo</h2>
+        <p class="text-blue-400 text-xs font-semibold uppercase tracking-wide">Ingeniero Electrónico</p>
+      </div>
+
+      <nav class="flex-1 overflow-y-auto p-4 mt-2">
+        <ul class="flex flex-col gap-2">
+          <li><a href="index.html" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors text-sm text-gray-300 hover:text-white"><i class="fa-solid fa-house w-5 text-gray-500"></i> Inicio</a></li>
+          <li><a href="#proyectos" class="flex items-center gap-3 px-4 py-2 bg-blue-600/10 text-blue-400 rounded-md transition-colors text-sm font-semibold"><i class="fa-solid fa-microchip w-5"></i> Proyectos Vigentes</a></li>
+          <li><a href="servicios.html" class="flex items-center gap-3 px-4 py-2 hover:bg-white/5 rounded-md transition-colors text-sm text-gray-300 hover:text-white"><i class="fa-solid fa-industry w-5 text-gray-500"></i> Servicios B2B</a></li>
+        </ul>
+      </nav>
+
+      <div class="p-6 border-t border-gray-800 bg-gray-900/30">
+        <div class="flex justify-center items-center gap-6 text-xl">
+          <a href="https://github.com/Jacksonbill3108" target="_blank" aria-label="GitHub" class="text-gray-500 hover:text-white hover:scale-110 transition-all"><i class="fab fa-github"></i></a>
+          <a href="https://www.youtube.com/@Ing.J.CesarAngulo" target="_blank" aria-label="YouTube" class="text-gray-500 hover:text-red-500 hover:scale-110 transition-all"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/julio-cesar-angulo-justiniano-143ba0211/" target="_blank" aria-label="LinkedIn" class="text-gray-500 hover:text-blue-400 hover:scale-110 transition-all"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-30 hidden transition-opacity duration-300"></div>
+
+    <main class="main-content flex-1 overflow-y-auto bg-axonDark relative w-full">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[150px] pointer-events-none"></div>
+
+      <div class="p-6 lg:p-12 max-w-7xl mx-auto relative z-10">
         
-        <div class="curso-card">
-            <div class="curso-icono"><i class="fa-brands fa-python"></i></div>
-            <h3>Axon Node Pro v1.1</h3>
-            <p>Sistema de monitoreo de variables.</p>
-            <a href="Cursos/program.html" class="btn-curso">Ver Contenido</a>
-        </div>
+        <section id="proyectos" class="mb-12 border-b border-gray-800 pb-8">
+          <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Ingeniería y <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-axonBlue">Desarrollo</span></h1>
+          <p class="text-lg text-gray-400 max-w-2xl">Portafolio de proyectos activos, sistemas de monitoreo y recursos académicos de ingeniería electrónica de precisión.</p>
+        </section>
 
-        <div class="curso-card">
-        <div class="curso-icono"><i class="fa-solid fa-microchip"></i></div>
-            <h3>Teoría de Control I</h3>
-            <p>Guías de laboratorio detalladas, simulaciones y análisis de sistemas.</p>
-            <a href="Cursos/control.html" class="btn-curso">Ver Contenido</a>
-        </div>
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+          <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:-translate-y-2 hover:border-blue-500 hover:shadow-[0_10px_30px_rgba(0,82,204,0.15)] transition-all duration-300 group flex flex-col h-full">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                <i class="fa-brands fa-python"></i>
+              </div>
+              <span class="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full border border-green-500/30 animate-pulse">Vigente</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Axon Node Pro v1.1</h3>
+            <p class="text-gray-400 mb-8 flex-grow">Sistema avanzado de monitoreo de variables físicas y telemetría utilizando Python y microcontroladores estructurados.</p>
+            <a href="Cursos/program.html" class="w-full text-center bg-gray-800 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-colors border border-gray-700 hover:border-transparent flex items-center justify-center gap-2">
+              Ver Desarrollo <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+          </div>
 
-    </section>
+          <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8 hover:-translate-y-2 hover:border-blue-500 hover:shadow-[0_10px_30px_rgba(0,82,204,0.15)] transition-all duration-300 group flex flex-col h-full">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                <i class="fa-solid fa-wave-square"></i>
+              </div>
+              <span class="bg-gray-800 text-gray-400 text-xs font-bold px-3 py-1 rounded-full border border-gray-700">Académico</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Teoría de Control I</h3>
+            <p class="text-gray-400 mb-8 flex-grow">Guías de laboratorio detalladas, simulaciones matemáticas y análisis dinámico de sistemas en lazo cerrado.</p>
+            <a href="Cursos/control.html" class="w-full text-center bg-gray-800 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-colors border border-gray-700 hover:border-transparent flex items-center justify-center gap-2">
+              Ver Contenido <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+          </div>
 
+        </section>
 
-    <!-- Más secciones... -->
-  </main>
+      </div>
+    </main>
   </div>
   
-  <!-- Fuente de iconos FontAwesome CDN -->
-  <!--Script de funcionalidades-->
-  <script src="config.js"></script>
+  <script>
+      // Sidebar Lateral
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('mainSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+
+      function toggleSidebar() {
+          sidebar.classList.toggle('-translate-x-full');
+          overlay.classList.toggle('hidden');
+      }
+
+      sidebarToggle.addEventListener('click', toggleSidebar);
+      overlay.addEventListener('click', toggleSidebar);
+
+      // Dropdown Móvil Superior
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileDropdown = document.getElementById('mobileDropdown');
+
+      mobileMenuToggle.addEventListener('click', () => {
+          mobileDropdown.classList.toggle('opacity-0');
+          mobileDropdown.classList.toggle('invisible');
+          mobileDropdown.classList.toggle('scale-95');
+      });
+
+      document.addEventListener('click', (event) => {
+          if (!mobileMenuToggle.contains(event.target) && !mobileDropdown.contains(event.target)) {
+              mobileDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+          }
+      });
+  </script>
 </body>
 </html>
